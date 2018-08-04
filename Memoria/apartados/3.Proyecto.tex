@@ -1,0 +1,124 @@
+\documentclass[../all.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%
+    \section{Sports Fake Detector}
+%%%%%%%%%%%%%%%%%%
+
+\subsection{Tecnologías utilizadas}
+    \subsubsection{MongoDB}
+        MongoDB es un sistema de bases de datps NoSql de código abierto orientado a documentos. En lugar de almacenar la información en tablas como se haría en una base de datos relacional, MongoDB guarda la información en forma de documentos JSON, haciendo que la integración de este sistema de información sea mucho más simple y rápido que otros sistemas de bases de datos.\\
+        MongoDB ha sido muy útil para almacenar de manera eficiente grandes conjuntos de tuits. Para trabajar con este sistema de bases de datos se ha empleado la líbreria PyMongo, que es la distribución para Python recomendada en la web oficial de MongoDB y que contiene todas las herramientas necesarias. Para el proyecto se ha empleado la versión 3.0.4 de MongoDB.\\
+        MongoDB es un sistema fácil de utilizar y que funciona muy bien para guardar textos pero vamos a ver una tabla donde se puede comparar una base de datos como MongoDB con una SQL\footnote{Obtenida en \url{https://blog.pandorafms.org/es/bases-de-datos-nosql/}}.
+        
+    
+        
+        \begin{center}
+            \begin{tabular}{ | m{3cm} | m{4cm}| m{4cm} | } 
+                \hline
+                \textbf{Feature} & \textbf{NoSQL Database} & \textbf{SQL Database} \\ 
+                \hline
+                Performance & High \checkmark & Low \\ 
+                \hline
+                Reliability & Poor & Good \checkmark \\ 
+                \hline
+                Availability & Good & Good \\ 
+                \hline
+                Consistency & Poor & Good \checkmark \\ 
+                \hline
+                Dara storage & Optimized for huge data \checkmark & Medium sized to large  \\ 
+                \hline
+                Scalability & High \checkmark & High but expensive  \\ 
+                \hline
+            \end{tabular}
+        \end{center}
+    \subsubsection{Pymongo}
+        {\color{red} 
+            Clase
+        }
+    \subsubsection{AVL Tree}
+        {\color{red} 
+            TODO
+        }
+    
+\newpage
+\subsection{Fase 0 - Extracción de la información y creación de los datasets}
+    \subsubsection{Concepto}
+        Esta primera fase o fase inicial se irá modificando al largo de la implementación según se necesite. Pretende englobar tanto la extracción de los tweets como la creación de los diccionarios.\\
+        Se pretende así que cada deporte tenga tres diccionarios asociados (palabras excluyentes, palabras vinculantes principales y palabras vinculantes secundarias). También se tendrán diccionarios para el análisis de las frases; palabras vacías, que son aquellas palabras que no aportan nada a la hora de clasificar el texto como podrían ser artículos y preposiciones. Por último se tendrá un diccionario asociado a cada uno de los sentimientos a analizar; alegría, amor, enfado, miedo, sorpresa y tristeza.
+        
+    \subsubsection{Software}
+        El esquema de esta fase se puede ver en la siguiente imagen:\\
+        \begin{figure}[H]
+        \centering
+            \includegraphics[height=13cm, width=15cm]{imgs/extraccionTwitter.png}
+            \caption{Estructura de extracción de tweets y interacción con diccionario}
+        \end{figure}
+        Donde se puede ver que se extrae la información de twitter a través de la librería tweepy, se proceso con el detector de mentiras y se interacciona con la base de datos donde previamente se habían guardado los diccionarios.\\
+        Las tablas de la base de datos son las siguientes:
+        \begin{figure}[H]
+        \centering
+            \includegraphics[height=13cm, width=15cm]{imgs/DB.png}
+            \caption{Tablas en la base de datos del proyecto}
+        \end{figure}
+    
+        \paragraph{Tweepy}
+            Tweepy es una librería de código abierto para Python que incluye todo el conjunto de funciones necesarias para comunicar con Twitter mediante las API's definidas por este. Las funciones definidas por Tweepy simplifican la conexión y búsquedas con Twitter. Por ejemplo, toda la conexión con Twitter debe estar certificada con un autor y, mientras que por defecto habría que configurar esta conexión mediante otra librería como sería Python-Auth y establecer cada conexión manualmente, Tweepy simplifica esto con unas funciones que simplemente esperan está autenticación como parámetro para poder configurarlo automáticamente. Estos parámetros son 4 tokens necesarios y eb el caso de la búsqueda solo tenemos que indicarle los parámetros que solicita Twitter, toda la complejidad de las conexiones la trata internamente simplificando el trabajo inmensa,ente. Para el proyecto se ha empleado la versión 3.3 de Tweepy.
+            \newline{\color{red} 
+            Clase
+            }
+        \paragraph{Wikipedia}
+            {\color{red} 
+                TODO
+            }
+
+\newpage    
+\subsection{Fase 1 - Clasificación de texto según temática}
+    \subsubsection{Concepto}
+        {\color{red} 
+            TODO
+        }
+    \subsubsection{Software}
+        {\color{red} 
+        TODO: Hablar de las librerías python utilizadas, diagrama ...
+        }
+        \paragraph{Stemmer}
+            {\color{red} 
+                TODO
+            }
+        \paragraph{Naive Bayes}
+            {\color{red} 
+                TODO
+            }
+        \paragraph{Diccionario}
+            {\color{red} 
+                TODO
+            }
+
+\newpage
+\subsection{Fase 2 - Análisis del sentimiento}
+    \subsubsection{Concepto}
+            {\color{red} 
+                TODO
+            }
+    \subsubsection{Software}
+        {\color{red} 
+        TODO: Hablar de las librerías python utilizadas, diagrama ...
+        }
+        \paragraph{Vader Sentiment}
+            {\color{red} 
+                TODO
+            }
+        \paragraph{TextBlob}
+            {\color{red} 
+            Para traducir y para clasificar
+            }
+        \paragraph{Diccionario}
+            {\color{red} 
+            Para traducir y para clasificar
+            }
+\newpage
+\subsection{Fase 3 - }
+    \subsubsection{Concepto}
+
+    \subsubsection{Software}
+\end{document}

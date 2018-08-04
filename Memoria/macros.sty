@@ -1,0 +1,41 @@
+\ProvidesPackage{macros}[2018/01/09 v1.1 My own macros]
+
+%--------------------------------------
+%               PACKAGES
+%--------------------------------------
+
+\RequirePackage{xcolor}
+\RequirePackage{soulutf8}
+\RequirePackage{float}
+
+%---------------------------------------------
+%               CONFIGURACIONES
+%---------------------------------------------
+
+% Modifica la separación entre líneas
+\renewcommand{\baselinestretch}{1.35}
+
+% Crea un tamaño base para las figuras (imágenes)
+\setkeys{Gin}{width=12cm, height=7cm, keepaspectratio}
+
+% Impone un float base para las figuras
+\makeatletter
+\renewcommand{\fps@figure}{H}
+\makeatother
+
+% Más líneas con información de errores
+\errorcontextlines 10000
+
+%--------------------------------------
+%               COMANDOS
+%--------------------------------------
+
+\newcommand\todo[1]{{\color{red}#1}}
+
+\newcommand\change[2]{{\color{red}\st{#1}} [{\color{blue}#2}]}
+
+\newcommand\add[1]{[{\color{blue}#1}]}
+
+\newcommand\remove[1]{{\color{red}\st{#1}}}
+
+\newcommand\english[1]{``\textit{#1}''}

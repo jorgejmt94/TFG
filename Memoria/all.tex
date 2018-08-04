@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[final]{pdfpages}  % To include pdf files
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{macros}
+\usepackage{minted}
+\usepackage{import}
+\usepackage{array}
+\usepackage{subfiles}% para organizacion en ficheros
+\usepackage{tikz}%to checkmark
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+%para tener 4sub
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+\usepackage[a4paper, top=1.3in, bottom=1.3in, headheight=0.5in, voffset=0.3in, headsep=0.5in, footnotesep=0.5in]{geometry}
+
+
+\renewcommand{\baselinestretch}{1.35}
+\selectlanguage{spanish} 
+\sloppy
+
+%----------------------------------------
+%               INFORMACIÓN
+%----------------------------------------
+
+\newcommand
+    \subtitle{TFG}
+
+\newcommand
+    \codename{Departamento de ingeniería informática}
+
+\author{
+    Jorge Melguizo\\
+    Tutora: Elisabet Golobardes
+    }
+
+\date{Curso académico 2017/18}
+
+\renewcommand
+    \title{Detección de \textit{tweets} fraudulentos}
+
+
+\setminted[python]{
+    breaklines, 
+    frame=single,
+    mathescape,
+    linenos,
+    numbersep=-4mm,
+    %bgcolor=WhiteSmoke
+}
+
+
+
+%------------------------------------
+%               HEADER
+%------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\includegraphics[width=3cm]{logo}}
+\rhead{\title\ }
+\rfoot{Página \thepage}
+
+
+%------------------------------------
+%               INICIO
+%------------------------------------
+
+\begin{document}
+
+
+%-------------------------------------
+%               PORTADA
+%-------------------------------------
+%\include{aux/portada.tex}
+
+
+\makeatletter
+    \begin{titlepage}
+    	\centering
+    	\includegraphics[width=0.35\textwidth]{logo.JPG}\par\vspace{3cm}
+    	{\scshape\LARGE \subtitle \par}
+    	\vspace{1cm}
+    	\vspace{1.5cm}
+    	{\huge\bfseries \title\par}
+    	\vspace{2cm}
+    	{\Large\itshape \@author \par}
+    	\vfill
+    	 \textsc{\codename}
+    	\vfill
+    	{\large \@date \par}
+    \end{titlepage}
+\makeatother
+
+
+%------------------------------------
+%               PreIndice
+%------------------------------------
+\pagenumbering{arabic}
+\newpage
+\section*{Palabras clave}
+Data Science, Tweeter, Trust Tweets, Text Classification, Sentiment Analysis.
+
+\section*{Abstract}
+{\color{red} Para el final}
+\section*{Resumen}
+La población cada vez es más exigente, en el mundo del periodismo esto se resume en inmediatez a la hora  de publicar una noticia. Para ello los periodistas recurren cada vez más a las redes sociales como fuente de información y con la exigencia de ser los primeros en publicar los sucesos, no contrastan la información leída. Si lo combinamos con que gran parte de la información que está en las redes sociales suele ser falsa hace que un periodista publique una noticia falsa y provoco que la sociedad se crea una mentira por el hecho de haberlo visto en televisión o leído en algún medio de información.
+Este proyecto pretende dar caza a mentiras en las redes sociales pero acotándolo al mundo de los deportes.
+
+
+{\color{red} Para el final}
+
+%------------------------------------
+%               ÍNDICE
+%------------------------------------
+\newpage
+%\thispagestyle{nofooter}
+\tableofcontents
+\newpage
+
+
+%---------------------------------------
+%               CONTENIDO
+%---------------------------------------
+
+
+%    \begin{itemize}
+%        \item paper 1
+%        \item paper 2
+%    \end{itemize}
+
+
+\subfile{apartados/1.Introduccion}
+\newpage
+\subfile{apartados/2.TrabajoRelacionado}
+\newpage
+\subfile{apartados/3.Proyecto}
+\newpage
+\subfile{apartados/4.Experimentacion}
+\newpage
+\subfile{apartados/5.Costes}
+\newpage
+\subfile{apartados/6.Conclusiones}
+\newpage
+\subfile{apartados/7.LineasDeFuturo}
+\newpage
+\subfile{apartados/8.Bibliografia}
+\newpage
+\subfile{apartados/9.Anexos}
+
+
+%-----------------------------------
+%               FINAL
+%-----------------------------------
+\end{document}
