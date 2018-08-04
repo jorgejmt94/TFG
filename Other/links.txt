@@ -1,0 +1,21 @@
+
+First example Python with mongodb
+
+    https://www.mongodb.com/what-is-mongodb
+
+
+TEXT CLASIFICATION
+
+    Varios algoritmos
+
+        https://towardsdatascience.com/machine-learning-nlp-text-classification-using-scikit-learn-python-and-nltk-c52b92a7c73a
+
+    codigo
+
+        https://github.com/kareemf/news-article-classification
+
+        https://github.com/yassersouri/classify-text
+
+        http://www.nltk.org/book/ch06.html
+
+

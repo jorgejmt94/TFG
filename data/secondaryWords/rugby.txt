@@ -1,0 +1,83 @@
+avant
+fuera de juego
+offside
+onside
+pase forward
+pase adelantado
+ofensivo
+defensa
+mark
+golpe
+golpear
+puntapié
+franco
+touch
+zonas laterales
+line-out
+ensayo
+try
+free-kick
+kick-off
+foul
+foul play
+zona de ensayo
+zona de marca
+knock-on
+adelantado
+penalty
+catigo
+penal
+drop goal
+conversion goal
+transformación
+conversión
+delantera
+primera línea
+pilar
+pilar izquierdo
+pilar derecho
+prop
+lock
+segunda línea
+hooker
+second row
+tercera línea
+flanker
+ala
+centro
+línea de tres cuartos
+backs
+fly-half
+apertura
+wing
+zaguero
+contacto
+15
+22
+balón
+ovalado
+infraccion
+infracciones
+naciones
+Numero 8
+anotar
+pasar
+robar
+equipo
+rival
+venda
+vendaje
+botas
+tacos
+entre palos
+sustituir
+defensor
+palos
+touche
+ruck
+derribo
+derribar
+chute
+chutar
+lanzar
+lanzó

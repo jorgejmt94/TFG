@@ -1,0 +1,12 @@
+raqueta
+guantes
+rueda
+porteria
+volea
+césped
+boxes
+hierro
+madera
+chute
+chutar
+pneumático

@@ -1,0 +1,77 @@
+ball
+pelota
+break
+saque
+servicio
+cannon ball
+cañonazo
+cortada
+efecto
+bola con efecto
+deuce
+drive
+juego
+game
+spin
+recogepelotas
+liftado
+lob
+globo
+bola rápida
+golpe liso
+net
+red
+passing shot
+set ball
+set point
+punto
+smash
+esmach
+esmachar
+swing
+balanceo
+timing
+individual
+dobles
+hierba
+tierra
+dejada
+stop volley
+court
+pist
+indoor
+iguales
+30
+15
+40
+falta
+peloteo
+individuales
+bote
+juez
+master
+mejor de tres
+mejor de cinco
+volea
+juez de línea
+dura
+ladrillo
+polvo
+césped
+in
+out
+tie-breack
+ace
+reves
+set
+tie-break
+batida
+grand slam
+tierra batida
+final
+puntos
+eliminatoria
+partido
+venda
+vendaje
+sube

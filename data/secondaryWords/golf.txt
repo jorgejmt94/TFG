@@ -1,0 +1,77 @@
+agujero
+calle
+driving range
+campo de prácticas
+fairway
+green
+verde
+hirba fina
+búnker
+arenero
+arena
+obstáculo
+hazard
+water hazard
+regata
+charco
+rough
+matorral
+tee box
+zona de salida
+course
+recorrido
+link
+marshal
+supervisor
+supervisor de juego
+supervisor de pista
+encargado
+hole
+albatross
+eagle
+birdie
+par
+doble bogey
+driver
+madera
+hierro
+híbrido
+putter
+chip
+dogleg
+drive
+slice
+top spin
+golpe
+golpe con efecto
+golpe largo
+torpar
+putt
+golpe corto
+open
+master
+major
+sergio garcia
+campo
+hoyos
+bogey
+swing
+mango
+tecnica
+ega
+hook
+loft
+match play
+medal play
+stroke play
+juego por golpes
+eclectic
+establefor
+mulligan
+us open
+the u.s open
+guantes
+spike
+spikes
+bola
+palos

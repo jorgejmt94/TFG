@@ -1,0 +1,11 @@
+guantes
+rueda
+porteria
+canasta
+placaje
+boxes
+madera
+chute
+chutar
+portero
+pneumático

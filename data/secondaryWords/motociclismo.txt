@@ -1,0 +1,81 @@
+velocidad
+velocidades
+freno
+caer
+tiro
+motro
+distancia
+raid
+circuito
+montmeló
+piloto
+vehiculos
+vehiculo
+asfalto
+curva
+125
+250
+campeonato
+jerez
+termas de río hondo
+las américas
+le mans
+mugello
+assen
+sachsenring
+brno
+red bull ring
+silverstone
+misano
+chang international circuit
+motegi
+phillip island
+sepang
+mono
+casco
+manillar
+pnéumatico
+pnéumaticos
+rueda
+rodar
+critérium
+box
+boxes
+slick
+liso
+neumático
+neumáticos
+cochera
+neumáticos mixtos
+neumáticos de lluvia
+safety car
+pit wall
+pole position
+pit
+parrilla
+parrila de salida
+penalización
+stop and go
+team radio
+paddock
+motorhome
+warm up
+grip
+chattering
+wheelie
+caballito
+feeling
+rookie
+motohome
+piano
+pianos
+salida
+yamaha
+suzuki
+honda
+pit-lane
+pit lane
+qualifying
+entrenamientos libres
+entrenamiento libe
+marca

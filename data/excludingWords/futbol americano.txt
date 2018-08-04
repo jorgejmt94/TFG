@@ -1,0 +1,8 @@
+raqueta
+red
+rueda
+porteria
+portero
+canasta
+boxes
+pneumático

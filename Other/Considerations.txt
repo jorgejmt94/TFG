@@ -1,0 +1,19 @@
+Trol:
+    - Que es un trol
+    - Tipos de trolñ
+
+Lista de deportes (10 deportes mas practicados - http://www.golfpark.es/los-10-deportes-mas-practicados-en-espana/
+
+    añado: motociclismo y rugby
+
+
+
+Definir
+    articulos
+    palabras clave
+    rasgos caracteristiocs de cada deporte
+
+clasificaciones
+    tipo de deporte
+    sentyment analysis
+    coger ultimos tweets con ese hashtag y comparar

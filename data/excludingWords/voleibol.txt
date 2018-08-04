@@ -1,0 +1,9 @@
+raqueta
+rueda
+porteria
+canasta
+boxes
+portero
+chute
+chutar
+madera

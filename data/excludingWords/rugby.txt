@@ -1,0 +1,6 @@
+raqueta
+red
+rueda
+porteria
+canasta
+boxes
