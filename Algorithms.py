@@ -192,6 +192,21 @@ def text_classification_with_naive_bayes(text):
     print('según secondary words:',result)
 
 
+def text_classification_with_(text):
+
+    #key words
+    dictionary = DB.GET_dictionary_from_DB()
+    from gensim.models import Word2Vec
+
+    for type in dictionary:
+        for word in type.secondary_words:
+            to_add = (word, type.type_name)
+
+
+
+
+
+
 def analize_sentiment_with_vaderSentiment(text):
     from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
     analyzer = SentimentIntensityAnalyzer()
@@ -216,7 +231,32 @@ def analize_sentiment_with_textBlob(text):
     else:
         return 'NEUTRAL'
 
+def analize_sentiment_with_dictionary(text):
+    import heapq
 
+    n_repetidas = []
+    i=0
 
+    text_to_classyfy = text.split()
 
+    # GET THE DICTIONARY
+    dictionary = DB.GET_SA_from_DB()
+
+    #recorro la lista de palabras de cada sentimiento
+    for type in dictionary:
+        n_repetidas.append(0)
+        for type_word in type.words_list:
+            #comparo cada palabra del texto con una palabra de la lista de sentimientos
+            for text_word  in text_to_classyfy:
+                if text_word.lower() == type_word.lower():
+                    n_repetidas[i] += 1
+
+        i += 1
+    i=0
+    print("\n--------------------Resultado sentiment_Analysis_via_dictionary:--------------------")
+    print('Texto a clasificar:', text)
+    max_values = heapq.nlargest(1, n_repetidas)  # se escoge las dos mas altas
+    print('Frase clasificada con el sentimiento ->',
+          Utils.get_sentiment_name(n_repetidas.index(max_values[i])),
+          '<- encontrada/s', max_values[i], 'repeticiones de palabras en el diccionario.')
 
