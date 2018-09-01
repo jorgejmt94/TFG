@@ -10,8 +10,13 @@ print()
 #      Algorithms.text_classification_with_(input_value)
 
 
-Algorithms.analize_sentiment_with_dictionary('Odio a cr7 ')
-
-Algorithms.analize_sentiment_with_dictionary('Aqui declaro mi amor eterno e incondicional hacia su santidad Lionel Messi ')
-
+''''
+TODO:
+    - Una funcion que coja una frase y pruebe todos los algoritmos
+    - Una funcion que coja 'X' frases y diga por cada algoritmo que 'Y' deportes se hablan
+    - Probar algoritmos de clasificacion con stemer a ver si mejora
+    - Un algoritmo más de clasificación de textos
+    - Modificar como dice cada algoritmo de que es
+    - Decision final es o no verdad :((((((((((
+'''
 

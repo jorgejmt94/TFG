@@ -100,6 +100,7 @@
 \newpage    
 \subsection{Fase 1 - Clasificación de texto según temática}
     \subsubsection{Concepto}
+    	
         {\color{red} 
             TODO
         }
@@ -107,15 +108,55 @@
         {\color{red} 
         TODO: Hablar de las librerías python utilizadas, diagrama ...
         }
+    
+    	\newpage
         \paragraph{Stemmer}
-            {\color{red} 
-                TODO
-            }
+        	Por razones gramaticales, los documentos van a utilizar diferentes formas de una palabra, como jugar, juegan y jugaron o jugador y jugadores. Además, hay familias de palabras derivadas relacionadas con significados similares, como vivir y convivir. En muchas situaciones, parece que sería útil buscar una de estas palabras para devolver documentos que contengan otra palabra en el conjunto.\\
+        	
+        	El objetivo tanto de la derivación (stemmer) como de la lematización (lemmatization) es reducir las formas flexivas y, a veces, las formas derivadas de una palabra a una forma básica común.\\
+        	
+        	Sin embargo, las dos palabras difieren en su forma de hacerlo. Stemming usualmente se refiere a un crudo proceso heurístico que elimina los extremos de las palabras con la esperanza de lograr este objetivo correctamente con un alto porcentaje, y a menudo incluye la eliminación de los afijos derivacionales. La lematización generalmente se refiere a hacer las cosas correctamente con el uso de un vocabulario y un análisis morfológico de las palabras, normalmente con el objetivo de eliminar solamente las terminaciones  y devolver la forma base o diccionario de una palabra, lo que se conoce como el lema (lemma).\\
+        	
+        	Como este trabajo esta en castellano, una lengua muy rica en su vocabulario y derivaciones, se ha optado por usar un Stemmer y no un lematizador dado que se obtienen mejores resultados.\\
+        	
+        	\begin{figure}[H]
+        		\centering
+        		\includegraphics[height=13cm, width=15cm]{imgs/stemExampleCode.png}
+        		\caption{Código ejemplo utilización VADER}
+        	\end{figure}
+        	\begin{figure}[H]
+        		\centering
+        		\includegraphics[height=15cm, width=16cm]{imgs/stemExampleOutput.png}
+        		\caption{Output ejemplo utilización VADER}
+        	\end{figure}
+        	
+        	
+
         \paragraph{Naive Bayes}
-            {\color{red} 
-                TODO
-            }
+        
+        	El clasificador Naive Bayes es un clasificador probabilístico que se basa en el teorema de Bayes con suposiciones de independencia. Es una de las técnicas de clasificación de texto más básicas con varias aplicaciones en la detección de spam en el correo electrónico, clasificación de correo electrónico personal, categorización de documentos, detección de lenguaje y detección de sentimiento. \\
+        	
+        	Como se ha comentado se basa en el teorema de Bayes así que primero lo comentaremos y se usará como ejemplo la clasificación de texto. Se usa para predecir la probabilidad condicional de que un documento pertenezca a una clase P(c{\tiny i}$|$d{\tiny j}) a partir de la probabilidad de los documentos dada la clase P(d{\tiny j} $|$c{\tiny i}) y la probabilidad a priori de la clase en el conjunto de entrenamiento P(c{\tiny i})
+        	
+        	\begin{figure}[H]
+        		\centering
+        		\includegraphics[height=5cm, width=5cm]{imgs/naiveBayesEquation.png}
+        		\caption{Formula Naive Bayes}
+        	\end{figure}
+        	
+        	Dado que la probabilidad de cada documento P(d{\tiny j}) no aporta información
+        	para la clasificación, el término suele omitirse. La probabilidad de un documento
+        	dada la clase suele asumirse como la probabilidad conjunta de los términos que
+        	aparecen en dichos documentos dada la clase y se calculan como:
+        	\begin{figure}[H]
+        		\centering
+        		\includegraphics[height=5cm, width=5cm]{imgs/multinomialBayesEquation.png}
+        		\caption{Formula Multinomial Bayes}
+        	\end{figure}
+            
+        \newpage
         \paragraph{Diccionario}
+        	
             {\color{red} 
                 TODO
             }
@@ -130,17 +171,42 @@
         {\color{red} 
         TODO: Hablar de las librerías python utilizadas, diagrama ...
         }
-        \paragraph{Vader Sentiment}
-            {\color{red} 
-                TODO
-            }
-        \paragraph{TextBlob}
-            {\color{red} 
-            Para traducir y para clasificar
-            }
+    
+    	\newpage
+        \paragraph{Vader Sentiment 3.3}
+        
+        	VADER (Valence Aware Dictionary and sEntiment Reasoner) es un léxico y una biblioteca de análisis de sentimiento basada en reglas. Sirve como herramienta de análisis de sentimientos basada en reglas que está específicamente adaptada a los sentimientos expresados en las redes sociales.\\
+        	
+        	 Es completamente de código abierto bajo la [Licencia MIT]. VADER puede incluir el sentimiento de los emoticonos (por ejemplo, :-)), los acrónimos relacionados con el sentimiento (por ejemplo, LOL) y la jerga (por ejemplo, meh).\\
+        	 
+        	 El método vaderSentiment() devuelve los valores para representar la cantidad de sentimiento negativo, positivo y neutral y también calcula el valor de sentimiento compuesto como un valor con signo para indicar la polaridad del sentimiento general.\\
+        	 
+        	 A continuación se muestra un ejemplo de utilización de VADER:
+        	 \begin{figure}[H]
+        	 	\centering
+        	 	\includegraphics[height=15cm, width=16cm]{imgs/vaderExampleCode.png}
+        	 	\caption{Código ejemplo utilización VADER}
+        	 \end{figure}
+        	\begin{figure}[H]
+        		\centering
+        		\includegraphics[height=15cm, width=16cm]{imgs/vaderExampleOutput.png}
+        		\caption{Output ejemplo utilización VADER}
+        	\end{figure}
+        
+		\newpage
+        \paragraph{TextBlob 0.15.1}
+        	TextBlob es una librería de Python (2 y 3) para procesar datos textuales. Proporciona una API simple para adentrarse en tareas comunes de procesamiento del lenguaje natural (NLP), como etiquetado parcial, extracción de frase nominal, análisis de sentimiento, clasificación y traducción.\\
+        	
+        	En esta fase se ha utilizado esta librería para traducir tweets de otros idiomas y para la clasificación del sentimiento se escogió esta librería porque que ofrece una API simple para acceder a sus métodos y realizar tareas NLP básicas.
+        	
+        \paragraph{NLTK 3.2.2}
+			NLTK (Natural Language Toolkit) es una plataforma líder para construir programas de Python para trabajar con datos de texto natural. Proporciona interfaces fáciles de usar a más de 50 recursos léxicos como WordNet, junto con un conjunto de librerías de procesamiento de texto para clasificación, tokenización, derivación, etiquetado, análisis y razonamiento semántico, envoltorios para bibliotecas de PNL de fuerza industrial, y un foro de discusión activo.\\
+			
+			Contiene una completa documentación (API). Está disponible para Windows, Mac OS X y Linux. NLTK es un proyecto gratuito y de código abierto que ha sido llamado "una herramienta maravillosa para enseñar y trabajar en lingüística computacional usando Python" y "una biblioteca increíble para jugar con el lenguaje natural".
+		\newpage		
         \paragraph{Diccionario}
             {\color{red} 
-            Para traducir y para clasificar
+            TODO: SENTIMENT ANALYSIS WORDS
             }
 \newpage
 \subsection{Fase 3 - }

@@ -158,3 +158,51 @@ import DB, Utils, Algorithms, DataFromInternet, Twitter
 #         'word_list': sentiment.words_list
 #     }
 #     DB.INSERT_json_toDB('train', 'sa', data_json)
+
+
+''' ##########################################################
+    ###            prueba algortmos                        ###
+    ##########################################################'''
+# Algorithms.analize_sentiment_with_dictionary('Odio a cr7 ')
+#
+# Algorithms.analize_sentiment_with_dictionary('Aqui declaro mi amor eterno e incondicional hacia su santidad Lionel Messi ')
+
+
+
+''' ##########################################################
+    ###            Muestras librerias memoria              ###
+    ##########################################################'''
+#### VADER ###
+# sentences = ["Amo a Leo Messi es el mejor del mundo <3",  # positive sentence example
+#              "Como es posible que me guste tanto Messi? Amor etertno!",  # punctuation emphasis handled correctly (sentiment intensity adjusted)
+#              "Cristiano esta sobrevalorado, no es buen jugador y nunca lo fue",  # negation sentence example
+#              "El golf no esta mal, meh.",  # positive sentence
+#              "El golf es un deporte muy aburrido que no me gusta nada.",  # negated negative sentence
+#              "No se si me gusta menos Cristiano Ronaldo o es peor el golf", # mixed negation sentence
+#              "Hoy jugaron fatal, no entiendo que apso lol", # mixed sentiment example with slang and constrastive conjunction "but"
+#              "Make sure you :) or :D today!",  # emoticons handled
+#              "Si viese a mi amor Leo Messi 💘 solo 💋 no hay palabras😁",  # emojis handled
+#              "Los lakers no estan mal" , # Capitalized negation
+#              "Hola"  # Neutral
+#              ]
+# from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+# analyzer = SentimentIntensityAnalyzer()
+# for sentence in sentences:
+#     vs = analyzer.polarity_scores(sentence)
+#     print("{:-<70} {}".format(sentence, str(vs)))
+
+
+#### Stemmer ###
+# from nltk.stem import SnowballStemmer
+# from nltk.tokenize import word_tokenize
+# def stem(word):
+#     stemmer = SnowballStemmer('spanish')
+#     return stemmer.stem(word)
+# new_text = "Jugando con mi sobrino nos dimos cuenta de lo divertido que es el escondite"
+# text_tokens = word_tokenize(new_text)
+# stemmed = []
+# for item in text_tokens:
+#     stemmed.append(stem(item))
+# print()
+# print('Input: ', new_text )
+# print('Output:', stemmed )

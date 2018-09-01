@@ -37,9 +37,7 @@ def get_data_from_wikipedia(type, percentage):
                                                  top_words_percentages,
                                                  Utils.get_data_name(type))
         data.append(new)
-
         return data
-
     elif type.lower() == "all":
         print('<------GET_TEXTS_FROM_WIKIPEDIA------>')
         for type in range(Utils.MIN_TYPES, Utils.MAX_TYPES):
@@ -66,8 +64,6 @@ def get_data_from_wikipedia(type, percentage):
                            )
 
             data.append(new)
-
         print('--------------------------------------')
-
         return data
 
