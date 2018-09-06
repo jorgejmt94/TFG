@@ -14,8 +14,10 @@ import Utils, re, string
 #       db                             #
 #       collection                     #
 ########################################'''
+#84.88.154.252 easy
+
 def connectDB(name_db, name_collection):
-    client = MongoClient('localhost', 27017) #84.88.154.252 easy
+    client = MongoClient('localhost', 27017)
     return client[name_db], client[name_db][name_collection]
 
 
@@ -168,8 +170,8 @@ def INSERT_json_toDB(db_name, cl_name, data_json):
     #       name collection                                                                  #
     #       wikipedia data for create a json                                                 #
     ##########################################################################################'''
-def INSERT_toDB(db_name, cl_name,text, word_list, top_words, top_words_percentages, type):
 
+def INSERT_toDB(db_name, cl_name,text, word_list, top_words, top_words_percentages, type):
 
     db, cl = connectDB(db_name, cl_name)
     data_json = {

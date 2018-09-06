@@ -3,11 +3,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimentación} % Evaluación
 %%%%%%%%%%%%%%%%%%%%%%%%%
+	Una vez explicadas las tecnologías usadas y el marco del trabajo, se procederá a explicar detalladamente como se ha llegado a la resolución del trabajo detallando los procedimientos seguidos y justificando la elección de las librerías, algoritmos y técnicas usadas junto a los resultados obtenidos en cada una de las fases del proyecto.
+
 
 \subsection{Problemática lenguaje natural}
-El procesamiento del lenguaje natural (PLN o NLP en sus siglas anglosajonas) es una rama de la Inteligencia Artificial encargada de estudiar métodos de comunicación entre máquina y hombre a través del lenguaje natural, es decir, el lenguaje empleado de forma habitual en una conversación escrita u oral entre personas.\\ 
-
-El lenguaje natural presenta muchas características que lo hacen un verdadero reto para las ciencias de la computación. Como suele pasar en el mundo de la Inteligencia Artificial, una tarea que puede parecer para una máquina. Aspectos como la ambigüedad, la espontaneidad, la falta de fluidez, las referencias y las abreviaturas son difíciles de procesar.
+	El procesamiento del lenguaje natural (PLN o NLP en sus siglas anglosajonas) es una rama de la Inteligencia Artificial encargada de estudiar métodos de comunicación entre máquina y hombre a través del lenguaje natural, es decir, el lenguaje empleado de forma habitual en una conversación escrita u oral entre personas.\\ 
+	
+	El lenguaje natural presenta muchas características que lo hacen un verdadero reto para las ciencias de la computación. Como suele pasar en el mundo de la Inteligencia Artificial, una tarea que puede parecer para una máquina. Aspectos como la ambigüedad, la espontaneidad, la falta de fluidez, las referencias y las abreviaturas son difíciles de procesar.
 
 \subsubsection{Homonimia}
 	La homonimia  es la cualidad de dos palabras, de distinto origen y significado por evolución histórica, que tienen la misma forma, es decir, la misma pronunciación o la misma escritura.\\
@@ -33,7 +35,9 @@ El lenguaje natural presenta muchas características que lo hacen un verdadero r
 	La polisemia, en lingüística, se presenta cuando una misma palabra o signo lingüístico tiene varias acepciones o significados. Una palabra polisémica es aquella que tiene dos o más significados que se relacionan entre sí.\\
 	
 	Cabe resaltar que la polisemia puede surgir por diversos motivos. Por un lado, el vocabulario figurado produce polisemia por medio de las metáforas y las metonimias. Por ejemplo: los brazos de un río, las patas de una mesa. La especialización y el lenguaje técnico también atribuyen un significado específico a ciertos términos (como en el caso del ratón en la informática).\\
+	
 	La influencia extranjera y las modificaciones de aplicación son otras condiciones que favorecen la polisemia: una muestra de esto es el vocablo botón que nació con la indumentaria y luego pasó a utilizarse también en los artefactos electrónicos.\\
+	
 	Un ejemplo estaría en la palabra \textbf{cabo}:
 	\begin{enumerate}[resume]
 		\setcounter{enumi}{0}
@@ -41,8 +45,10 @@ El lenguaje natural presenta muchas características que lo hacen un verdadero r
 		\item (masculino/femenino) Escalafón militar.
 		\item (masculino) Cuerda en jerga náutica.
 	\end{enumerate}
+\newpage
 \subsubsection{Anáfora y elipses}
 	La anáfora se puede definir como la palabra o palabras que asumen el significado de una parte del discurso (texto) que ya se ha mencionado antes.\\
+	
 	Un ejemplo de anáfora sería:
 	\begin{itemize}[resume]
 		\item Estoy de paso por Madrid. {\small(Madrid)} Es maravillosa. 
@@ -65,12 +71,12 @@ El lenguaje natural presenta muchas características que lo hacen un verdadero r
 	 	\item Las mañanas de domingo me encantan.
  	\end{itemize}
 	 Ambas oraciones expresan la misma idea utilizando un orden diferente en las distintas palabras que las componen.
+\newpage
 \subsubsection{Contexto}
 	El contexto es el conjunto de circunstancias (materiales o abstractas) que se producen alrededor de un hecho, o evento dado, que hacen que una palabra pueda tomar varios sentidos según el momento en el cual se utiliza.\\
 	
 	Un claro ejemplo de la importancia del contexto es la ironía, a un suceso malo se puede contestar con otra frase 'mala' como sería el caso de; \textit{¡Otra vez no!}, con una frase buena del estilo; \textit{¡Qué bien!} donde estaríamos siendo irónicos o con una frase como; \textit{¿Porqué a mí?}.
 	
-\newpage
 \subsubsection{Otras circunstancias}
 
 	Aparte de toda esta serie de fenómenos que se dan en la lengua formal, hay que tener que cuenta otros aspectos que se dan en ambientes más coloquiales como son las redes sociales.\\
@@ -81,7 +87,7 @@ El lenguaje natural presenta muchas características que lo hacen un verdadero r
 			\hline
 			\textbf{Texto de ejemplo} & \textbf{Explicación}\\ 
 			\hline
-			Messi es el mejor jugador de la historia del fútbol. & Frase correct \\ 
+			Messi es el mejor jugador de la historia del fútbol. & Frase correcta \\ 
 			\hline
 			Mesi es el mejor jugador de la istoria del futbol; & Faltas de ortografía\\ 
 			\hline
@@ -98,7 +104,9 @@ El lenguaje natural presenta muchas características que lo hacen un verdadero r
 
 \newpage
 \subsection{Fase 0 - Extracción de la información}
-
+	{\color{red} 
+		TODO: Falta adjuntar los resultados
+	}
 
 \newpage
 \subsection{Fase 1 - Clasificación de texto según temática}
@@ -125,16 +133,21 @@ se hizo con wiki, por  diccionario propio y para mejorar los tiempos con diccion
 \end{figure}
 
 {\color{red} 
-    TODO: TABLA COMPARATIVA DE LOS METODOS
+    TODO: TABLA COMPARATIVA DE LOS METODOS y Faltan los resultados
 }
 \newpage
 \subsection{Fase 2 - Análisis del sentimiento}
-    El análisis de sentimiento de textos en las redes sociales (que adopta diferentes nombres en inglés como sentiment analysis, opinion mining, brand monitoring, buzz monitoring, online anthropology, market influence analytics, conversation mining, online consumer intelligence, user generated content) es el proceso que determina el tono emocional que hay detrás de una palabras determinadas, si una frase contiene una opinión positiva o negativa sobre un producto, marca, institución, organización, empresa, evento o persona.\\
+    El análisis de sentimiento de textos en las redes sociales (que adopta diferentes nombres en inglés como sentiment analysis, opinion mining, brand monitoring, buzz monitoring, online anthropology, market influence analytics, conversation mining, online consumer intelligence, user generated content) es el proceso que determina el tono emocional que hay detrás de unas palabras determinadas, si una frase contiene una opinión positiva o negativa sobre un producto, marca, institución, organización, empresa, evento o persona.\\
     
     Palabras difíciles\\
     
-    Los sentimientos se clasifican en positivos, negativos o neutros. Sin embargo, el lenguaje natural es complejo y ambiguo por lo que enseñar a una máquina a que analice los diferentes matices gramaticales, variaciones culturales, jergas, expresiones coloquiales o a distinguir faltas de ortografía, la sinonimia o la polisemia dentro de un contexto que determina el tono de la conversación es francamente difícil. Así, por ejemplo, ante un comentario sarcástico, la máquina tomaría la frase como algo positivo en vez de algo negativo o expresiones como “LOL, OMG, estuvo geeeeeeeniaaaaaaaal” son dificilísimas de procesar.
-
+    Los sentimientos se clasifican en positivos, negativos o neutros. Sin embargo, el lenguaje natural es complejo y ambiguo por lo que enseñar a una máquina a que analice los diferentes matices gramaticales, variaciones culturales, jergas, expresiones coloquiales o a distinguir faltas de ortografía, la sinonimia o la polisemia dentro de un contexto que determina el tono de la conversación es francamente difícil. Así, por ejemplo, ante un comentario sarcástico, la máquina tomaría la frase como algo positivo en vez de algo negativo o expresiones como “LOL, OMG, estuvo geeeeeeeniaaaaaaaal” son dificilísimas de procesar.\\
+    
+    
+    
+	{\color{red} 
+		TODO: Faltan los resultados, COMENTAR QUE SI EL STEMMER FUNCIONASE MEJOR EN ESPAÑOL MEJORES RESULTADOS
+	}
 \newpage
 \subsection{Fase 3 -}
 

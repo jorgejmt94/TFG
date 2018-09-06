@@ -39,13 +39,14 @@ def palabras_repetidas_wikipedia(text):
 
     print('---------------------------------------------------------')
 
-
 def palabras_repetidas_dictionary(text_to_classyfy):
     import string, re, heapq
     n_repetidas_key = []
     n_repetidas_secondary = []
+    words_repetidas_key = []
+    words_repetidas_secondary = []
     i=0
-    print('--------------PALABRAS_REPETIDAS--------------')
+    #print('--------------PALABRAS_REPETIDAS--------------')
 
     text_to_classyfy = re.sub('[%s,\d]' % re.escape(string.punctuation), ' ', text_to_classyfy).lower().split()
     # GET THE DICTIONARY
@@ -57,38 +58,48 @@ def palabras_repetidas_dictionary(text_to_classyfy):
         for type_word in type.key_words:
 
             for word  in text_to_classyfy:
-                if word.lower() == type_word.lower():
+                if Utils.stem(word.lower()) == Utils.stem(type_word.lower()):
                     #print('key:',type.type_name,"->",word)
                     n_repetidas_key[i] += 1
+                    words_repetidas_key.append(word)
         for type_word in type.secondary_words:
             for word  in text_to_classyfy:
-                if word.lower() == type_word.lower():
+                if Utils.stem(word.lower()) == Utils.stem(type_word.lower()):
                     #print('secondary',type.type_name,"->",word)
                     n_repetidas_secondary[i] += 1
+                    words_repetidas_secondary.append(word)
 
         i += 1
 
     i = 0
     #print the result
-    print("--------------------Resultado palabras_repetidas_dictionary:--------------------")
-    max_values_key = heapq.nlargest(2, n_repetidas_key) #se escoge las dos mas altas
-    max_values_secondary = heapq.nlargest(2, n_repetidas_secondary) #se escoge las dos mas altas
+    #print("--------------------Resultado palabras_repetidas_dictionary:--------------------")
+    max_values_key = heapq.nlargest(1, n_repetidas_key) #se escoge las dos mas altas
+    max_values_secondary = heapq.nlargest(1, n_repetidas_secondary) #se escoge las dos mas altas
     i = 0
-    print('MAX VALUES KEY')
-    for _ in max_values_key:
-        print("|")
-        print("v", "%0.2f" %max_values_key[i], "puntos -> ", Utils.get_data_name(n_repetidas_key.index(max_values_key[i])))
-        i += 1
-    i = 0
-    print('MAX VALUES SECONDARY')
-    for _ in max_values_secondary:
-        print("|")
-        print("v", "%0.2f" %max_values_secondary[i], "puntos -> ", Utils.get_data_name(n_repetidas_secondary.index(max_values_secondary[i])))
-        i += 1
+    if max_values_key[i] != 0:
+        #words_repetidas_key = set(words_repetidas_key)
 
-    print('-------------------------------------------------------------------------------')
+        print('Segun primary words:', Utils.get_data_name(n_repetidas_key.index(max_values_key[0])), 'con las palabras repetidas:', words_repetidas_key)
+    else:
+        print('Ninguna key word encontrada')
+    # for _ in max_values_key:
+    #     print("|")
+    #     print("v", "%0.2f" %max_values_key[i], "puntos -> ", Utils.get_data_name(n_repetidas_key.index(max_values_key[i])))
+    #     i += 1
+    # i = 0
+    if max_values_secondary[i] != 0:
+        #words_repetidas_secondary = set(words_repetidas_secondary)
 
-
+        print('Segun secondary words:', Utils.get_data_name(n_repetidas_secondary.index(max_values_secondary[0])), 'con las palabras repetidas:', words_repetidas_secondary)
+    else:
+        print('Ninguna secondary word encontrada')
+    # for _ in max_values_secondary:
+    #     print("|")
+    #     print("v", "%0.2f" %max_values_secondary[i], "puntos -> ", Utils.get_data_name(n_repetidas_secondary.index(max_values_secondary[i])))
+    #     i += 1
+    #
+    # print('-------------------------------------------------------------------------------')
 
 def palabras_repetidas_dictionary_with_tree(text_to_classify):
     import heapq
@@ -121,7 +132,7 @@ def palabras_repetidas_dictionary_with_tree(text_to_classify):
     secondary_words_value = []
     excluding_words_value = []
     for sport in dictionary:
-        print('----------------------------------------------------------------------',sport.type_name)
+        #print('----------------------------------------------------------------------',sport.type_name)
 
         key_words_value.append(sport.key_words.find_words_in_text(text_to_classify, word_mark= 1))
 
@@ -141,23 +152,35 @@ def palabras_repetidas_dictionary_with_tree(text_to_classify):
     max_values_secondary = heapq.nlargest(3, secondary_words_value)  # se escoge las dos mas altas
 
     i = 0
-    print('MAX VALUES KEY')
-    for _ in max_values_key:
-        print("->", max_values_key[i], "puntos -> ",
-              Utils.get_data_name(key_words_value.index(max_values_key[i])))
-        i += 1
-    i = 0
-    print('MAX VALUES SECONDARY')
-    ok = 1
-    for _ in max_values_secondary:
-        if ok == 1:
-            print("|")
-            print("v", "%0.2f" % max_values_secondary[i], "puntos -> ",
-                  Utils.get_data_name(secondary_words_value.index(max_values_secondary[i])))
-        if i > 0:
-            if Utils.get_data_name(secondary_words_value.index(max_values_secondary[i])) == Utils.get_data_name(secondary_words_value.index(max_values_secondary[i-1])):
-                ok = 0
-        i += 1
+    # print('MAX VALUES KEY')
+    if max_values_key[i] != 0:
+        #words_repetidas_key = set(words_repetidas_key)
+
+        print('Segun primary words:', Utils.get_data_name(key_words_value.index(max_values_key[0])))
+    else:
+        print('Ninguna key word encontrada')
+    # for _ in max_values_key:
+    #     print("->", max_values_key[i], "puntos -> ",
+    #           Utils.get_data_name(key_words_value.index(max_values_key[i])))
+    #     i += 1
+    # i = 0
+    #print('MAX VALUES SECONDARY')
+    if max_values_secondary[i] != 0:
+        #words_repetidas_secondary = set(words_repetidas_secondary)
+
+        print('Segun secondary words:', Utils.get_data_name(secondary_words_value.index(max_values_secondary[0])))
+    else:
+        print('Ninguna secondary word encontrada')
+    # ok = 1
+    # for _ in max_values_secondary:
+    #     if ok == 1:
+    #         print("|")
+    #         print("v", "%0.2f" % max_values_secondary[i], "puntos -> ",
+    #               Utils.get_data_name(secondary_words_value.index(max_values_secondary[i])))
+    #     if i > 0:
+    #         if Utils.get_data_name(secondary_words_value.index(max_values_secondary[i])) == Utils.get_data_name(secondary_words_value.index(max_values_secondary[i-1])):
+    #             ok = 0
+    #     i += 1
 
     # print('Write a text: ')
     # input_value = input().lower()
@@ -165,31 +188,47 @@ def palabras_repetidas_dictionary_with_tree(text_to_classify):
 
 def text_classification_with_naive_bayes(text):
     from textblob.classifiers import NaiveBayesClassifier
-
     #key words
     dictionary = DB.GET_dictionary_from_DB()
     train = []
 
     for type in dictionary:
         for word in type.key_words:
-            to_add = (word, type.type_name)
+            to_add = (word.lower(), Utils.get_data_id_lower(type.type_name))
             train.append(to_add)
-
     cl = NaiveBayesClassifier(train)
-    result = cl.classify(text)
-    print('según key words:',result)
+
+
+    result = cl.classify(text.lower())
+    print('Según key words:',Utils.get_data_name(result))
+
+    #prob_dist = cl.prob_classify(0)
+    # prob_dist.max()
+    # print(round(prob_dist.prob(0), 12))
+
     #secondary words
     dictionary = DB.GET_dictionary_from_DB()
     train = []
-
+    to_add_list=[]
+    aux=[]
+    import random
+    #en las secondary words cogeremos un valor aleatorio de palabras para equilibrar (sino siempre dice que es futbol)
     for type in dictionary:
         for word in type.secondary_words:
-            to_add = (word, type.type_name)
-            train.append(to_add)
+            to_add_list.append((word.lower(), type.type_name))
+        aux=random.sample(to_add_list,50)#cogemos 50 al azar
+        to_add_list = []
+        for add in aux:
+            train.append(add)
 
     cl = NaiveBayesClassifier(train)
-    result = cl.classify(text)
-    print('según secondary words:',result)
+    result = cl.classify(text.lower())
+    print('Según secondary words:',result)
+
+    # from textblob import TextBlob
+    # blob = TextBlob("baloncesto", classifier=cl)
+    # print(blob.classify())
+
 
 
 def text_classification_with_(text):
@@ -206,7 +245,6 @@ def text_classification_with_(text):
 
 
 
-
 def analize_sentiment_with_vaderSentiment(text):
     from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
     analyzer = SentimentIntensityAnalyzer()
@@ -217,7 +255,6 @@ def analize_sentiment_with_vaderSentiment(text):
         return 'NEGATIVE'
     else:
         return 'NEUTRAL'
-
 
 def analize_sentiment_with_textBlob(text):
     from textblob import TextBlob
@@ -235,6 +272,8 @@ def analize_sentiment_with_dictionary(text):
     import heapq
 
     n_repetidas = []
+    words_repetidas = []
+
     i=0
 
     text_to_classyfy = text.split()
@@ -248,15 +287,44 @@ def analize_sentiment_with_dictionary(text):
         for type_word in type.words_list:
             #comparo cada palabra del texto con una palabra de la lista de sentimientos
             for text_word  in text_to_classyfy:
-                if text_word.lower() == type_word.lower():
+
+                if Utils.stem(text_word.lower()) == Utils.stem(type_word.lower()):
                     n_repetidas[i] += 1
+                    words_repetidas.append(text_word)
 
         i += 1
+
+    words_repetidas = set(words_repetidas)
     i=0
-    print("\n--------------------Resultado sentiment_Analysis_via_dictionary:--------------------")
-    print('Texto a clasificar:', text)
+    #print("\n--------------------Resultado sentiment_Analysis_via_dictionary:--------------------")
+    #print('Texto a clasificar:', text)
     max_values = heapq.nlargest(1, n_repetidas)  # se escoge las dos mas altas
-    print('Frase clasificada con el sentimiento ->',
-          Utils.get_sentiment_name(n_repetidas.index(max_values[i])),
-          '<- encontrada/s', max_values[i], 'repeticiones de palabras en el diccionario.')
+    if max_values[0] != 0:
+        # print('Frase clasificada con el sentimiento ->',
+        #   Utils.get_sentiment_name(n_repetidas.index(max_values[i])),
+        #   '<- encontrada/s', max_values[i], 'repeticiones de palabras en el diccionario.')
+        print('Frase clasificada con el sentimiento ->',
+              Utils.get_sentiment_name(n_repetidas.index(max_values[i])),
+              '<- encontrada/s', words_repetidas)
+    else:
+        print('Ninguna palabra encontrada dentro del diccionario')
+
+def analize_sentiment_with_naive_bayes(text):
+    from textblob.classifiers import NaiveBayesClassifier
+    #key words
+    dictionary = DB.GET_SA_from_DB()
+    train = []
+
+    for type in dictionary:
+        for word in type.words_list:
+            to_add = (word.lower(), type.sentiment)
+            train.append(to_add)
+    cl = NaiveBayesClassifier(train)
+
+    # prob_dist = cl.prob_classify(0)
+    # prob_dist.max()
+    # print(round(prob_dist.prob(0), 12))
+
+    result = cl.classify(text.lower())
+    print('Según key words:',result)
 

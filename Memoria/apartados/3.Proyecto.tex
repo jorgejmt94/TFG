@@ -4,13 +4,22 @@
     \section{Sports Fake Detector}
 %%%%%%%%%%%%%%%%%%
 
-\subsection{Tecnologías utilizadas}
+	En este apartado se darán a conocer las tecnologías usadas para la implementación del trabajo y su pertinente justificación. Se explican por separado las librerías de python y clases propias utilizadas en cada fase del proyecto.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=13cm, width=11cm]{imgs/generalSchema.png}
+		\caption{Esquema general del proyecto}
+	\end{figure}
+	
+	
+\subsection{Tecnologías utilizadas en todas las fases}
     \subsubsection{MongoDB}
-        MongoDB es un sistema de bases de datps NoSql de código abierto orientado a documentos. En lugar de almacenar la información en tablas como se haría en una base de datos relacional, MongoDB guarda la información en forma de documentos JSON, haciendo que la integración de este sistema de información sea mucho más simple y rápido que otros sistemas de bases de datos.\\
-        MongoDB ha sido muy útil para almacenar de manera eficiente grandes conjuntos de tuits. Para trabajar con este sistema de bases de datos se ha empleado la líbreria PyMongo, que es la distribución para Python recomendada en la web oficial de MongoDB y que contiene todas las herramientas necesarias. Para el proyecto se ha empleado la versión 3.0.4 de MongoDB.\\
-        MongoDB es un sistema fácil de utilizar y que funciona muy bien para guardar textos pero vamos a ver una tabla donde se puede comparar una base de datos como MongoDB con una SQL\footnote{Obtenida en \url{https://blog.pandorafms.org/es/bases-de-datos-nosql/}}.
+        MongoDB es un sistema de bases de datos NoSql de código abierto orientado a documentos. En lugar de almacenar la información en tablas como se haría en una base de datos relacional, MongoDB guarda la información en forma de documentos JSON, haciendo que la integración de este sistema de información sea mucho más simple y rápido que otros sistemas de bases de datos.\\
         
-    
+        MongoDB ha sido muy útil para almacenar de manera eficiente grandes conjuntos de tuits. Para trabajar con este sistema de bases de datos se ha empleado la librería PyMongo, que es la distribución para Python recomendada en la web oficial de MongoDB y que contiene todas las herramientas necesarias. Para el proyecto se ha empleado la versión 3.0.4 de MongoDB.\\
+        
+        MongoDB es un sistema fácil de utilizar y que funciona muy bien para guardar textos pero vamos a ver una tabla donde se puede comparar una base de datos como MongoDB con una SQL\footnote{Obtenida en \url{https://blog.pandorafms.org/es/bases-de-datos-nosql/}}.
         
         \begin{center}
             \begin{tabular}{ | m{3cm} | m{4cm}| m{4cm} | } 
@@ -65,10 +74,10 @@
 \newpage
 \subsection{Fase 0 - Extracción de la información y creación de los datasets}
     \subsubsection{Concepto}
-        Esta primera fase o fase inicial se irá modificando al largo de la implementación según se necesite. Pretende englobar tanto la extracción de los tweets como la creación de los diccionarios.\\
+        Esta primera fase o fase inicial se irá modificando a lo largo de la implementación según se necesite. Pretende englobar tanto la extracción de los tweets como la creación de los diccionarios.\\
         
         Se pretende así que cada deporte tenga tres diccionarios asociados (palabras excluyentes, palabras vinculantes principales y palabras vinculantes secundarias). También se tendrán diccionarios para el análisis de las frases; palabras vacías, que son aquellas palabras que no aportan nada a la hora de clasificar el texto como podrían ser artículos y preposiciones.Por último se tendrá un diccionario asociado a cada uno de los sentimientos a analizar; alegría, amor, enfado, miedo, sorpresa y tristeza.
-   \newpage 
+    \newpage 
     \subsubsection{Software}
         El esquema de esta fase se puede ver en la siguiente imagen:\\
         \begin{figure}[H]
@@ -83,31 +92,61 @@
             \includegraphics[height=15cm, width=15cm]{imgs/DB.png}
             \caption{Tablas en la base de datos del proyecto}
         \end{figure}
-    
-        \paragraph{Tweepy 3.5}
-            Tweepy es una librería de código abierto para Python que incluye todo el conjunto de funciones necesarias para comunicar con Twitter mediante las API's definidas por este. Las funciones definidas por Tweepy simplifican la conexión y búsquedas con Twitter. Por ejemplo, toda la conexión con Twitter debe estar certificada con un autor y, mientras que por defecto habría que configurar esta conexión mediante otra librería como sería Python-Auth y establecer cada conexión manualmente, Tweepy simplifica esto con unas funciones que simplemente esperan está autenticación como parámetro para poder configurarlo automáticamente. Estos parámetros son 4 tokens necesarios y eb el caso de la búsqueda solo tenemos que indicarle los parámetros que solicita Twitter, toda la complejidad de las conexiones la trata internamente simplificando el trabajo inmensa,ente. Para el proyecto se ha empleado la versión 3.3 de Tweepy.
+	    \paragraph{Wikipedia 1.4.0}
+		    Está librería se empezó a usar con la finalidad de crear diccionarios automáticamente, simplemente coger todas las palabras que salen de una búsqueda en wikipedia, excluir todos los artículos, proposicionales y palabras que no aportan valor de clasificación.\\
+		    
+		    De todas las palabras obtenidas se cogían el 30\% de las palabras más repetidas. Esto permitió empezar a hacer pruebas de los algoritmos pero se descarto por falta de precisión y se empezó a hacer un diccionario propio que ganó riqueza por algunas palabras encontradas gracias a este algoritmo.
+    	\newpage
+       	\paragraph{Pymongo 2.7}
+       		Pymongo es una librería de Python para poder conectarnos a una base de datos MongoDB. A continuación se muestra como hacer las principales operaciones con la librería.\\
+       		\begin{figure}[H]
+       			\centering
+       			\includegraphics[height=10cm, width=9cm]{imgs/pymongoConnect.png}
+       			\caption{Conectar con la Base de Datos}
+       		\end{figure}
+	       	\begin{figure}[H]
+	       		\centering
+	       		\includegraphics[height=8cm, width=8cm]{imgs/pymongoGet.png}
+	       		\caption{Obtener el diccionario de nuestra BBDD}
+	       	\end{figure}
+	       \begin{figure}[H]
+	       	\centering
+	       	\includegraphics[height=13cm, width=13cm]{imgs/pymongoInsert.png}
+	       	\caption{Insertar en la BBDD}
+	       \end{figure}
+       
+       \newpage
+       \paragraph{Tweepy 3.5}
+            Tweepy es una librería de código abierto para Python que incluye todo el conjunto de funciones necesarias para comunicar con Twitter mediante las API's definidas por este. Las funciones definidas por Tweepy simplifican la conexión y búsquedas con Twitter. Por ejemplo, toda la conexión con Twitter debe estar certificada con un autor y, mientras que por defecto habría que configurar esta conexión mediante otra librería como sería Python-Auth y establecer cada conexión manualmente, Tweepy simplifica esto con unas funciones que simplemente esperan está autenticación como parámetro para poder configurarlo automáticamente. Estos parámetros son 4 tokens necesarios y en el caso de la búsqueda solo tenemos que indicarle los parámetros que solicita Twitter, toda la complejidad de las conexiones la trata internamente simplificando el trabajo inmensamente. Para el proyecto se ha empleado la versión 3.3 de Tweepy.
             \begin{figure}[H]
             	\centering
             	\includegraphics[height=7cm, width=7cm]{imgs/twitter_class.png}
             	\caption{Diagrama de la clase propia Twitter encargada de la comunicación con twitter mediante la librería tweepy}
             \end{figure}
-        \paragraph{Wikipedia 1.4.0}
-            Está librería se empezó a usar con la finalidad de crear diccionarios automáticamente, simplemente coger todas las palabras que salen de una búsqueda en wikipedia, excluir todos los artículos, proposicionales y palabras que no aportan valor de clasificación.\\
-            
-            De todas las palabras obtenidas se cogían el 30\% de las palabras más repetidas. Esto permitió empezar a hacer pruebas de los algoritmos pero se descarto por falta de precisión y se empezó a hacer un diccionario propio que ganó riqueza por algunas palabras encontradas gracias a este algoritmo.
-            
+        
 
 \newpage    
 \subsection{Fase 1 - Clasificación de texto según temática}
     \subsubsection{Concepto}
+    	Para la clasificación de los tweets según su temática se hará uso de diferentes algoritmos y técnicas con la finalidad de conocer sobre qué temas escribe cada usuario de Twitter. La finalidad de esta fase por una parte es acotar los temas sobre los que habla cada usuario dada la suposición que lo más común en usuarios de Twitter (si nos centramos en los deportes) es que les guste mucho uno o dos deportes y sepan mucho de ellos y que luego sean simpatizantes de otros deportes. Por ejemplo en mi caso me gusta mucho el fútbol y el rugby y a veces miro el baloncesto o las carreras de motos gp pero no entiendo tanto de esos deportes como de mis favoritos. \\
     	
-        {\color{red} 
-            TODO
-        }
+    	Para ello esta fase se centrará en recopilar los últimos tweets de un usuario, analizar sus \textit{hastags}, investigar la posible mención de usuarios en los tweets y averiguar también los deportes de aquel usuario y por último  si hizo algún \textit{retweet} también extraer la misma información de esa cuenta.\\
+    	
+    	Con el fin de conseguir todo esto se aplicarán diferentes técnicas para obtener lo que realmente nos interesa de cada tweet (palabras clave, \textit{hastags}, menciones a otros usuarios, etc) y una vez extraídas y \textit{tokenizadas} se aplicarán diferentes técnicas para su clasificación como sería primero eliminación de las palabras que no nos interesan, aplicación de diferentes algoritmos como Naive Bayes y el uso de un diccionario propio con palabras clave, palabras secundarias y palabras excluyentes de cada deporte.
+    	
+    \newpage
     \subsubsection{Software}
-        {\color{red} 
-        TODO: Hablar de las librerías python utilizadas, diagrama ...
-        }
+    	Para esta fase damos por sentado que ya tenemos acceso a la API de Twitter para obtener los tweets. Se ha decidido descargar los 20 tweets de cada usuario, teniendo en cuenta que si un tweet tiene un \textit{hashtag} o algún usuario se investigara también ese caso, se cree que ya será suficiente pero si los resultados (porcentaje del deporte al que pertenece) no es suficiente se cogerán 10 más.\\
+    	
+    	Por cada tweet se elimina las palabras que se cree que no aportan nada. Estas palabras se encuentran en la base de datos de MongoDB con el nombre de \textit{emptyWords} y para acceder a ellas se hace mediante la librería \textit{pymongo}. También se eliminan los signos de puntuación mediante la combinación de las librerías \textit{re} y \textit{string}. Por último se duplica la frase pero esta vez solo con la raiz de cada palabra, esto se conseguirá con la librería \textit{SnowballStemmer} la cual se puede utilizar en Español aunque no se obtienen los mejores resultados con ella.\\
+    	
+    	Una vez se tienen las palabras clave de cada frase se analiza con \textit{Naive Bayes}, SVM y con el diccionario propio creado.
+    	
+        \begin{figure}[H]
+        	\centering
+        	\includegraphics[height=13cm, width=13cm]{imgs/softwareFase1.png}
+        	\caption{Diagrama fase 1 clasificación de texto según temática}
+        \end{figure}
     
     	\newpage
         \paragraph{Stemmer}
@@ -153,6 +192,8 @@
         		\includegraphics[height=5cm, width=5cm]{imgs/multinomialBayesEquation.png}
         		\caption{Formula Multinomial Bayes}
         	\end{figure}
+        
+        	Este algoritmo también se usará en la fase 2 para el análisis del sentimiento.
             
         \newpage
         \paragraph{Diccionario}
@@ -164,16 +205,27 @@
 \newpage
 \subsection{Fase 2 - Análisis del sentimiento}
     \subsubsection{Concepto}
-            {\color{red} 
-                TODO
-            }
+    	En esta segunda fase se quiere analizar el comportamiento del usuario para analizar si es muy critico o si solo tiene buenas palabras para su equipo como seria el ejemplo de un aficionado extremista del Sevilla CF o el Real Betis Balompié donde su rivalidad es histórica y los cuales siempre tienen buenas palabras para su equipo y malas formas e incluso insultos hacía la otra afición.\\
+    	
+    	Para la realización de esta fase y poder analizar el sentimiento de los últimos tweets del usuario se hará uso de diferentes librerías como  \textit{VaderSetniment},  \textit{TextBlob} y  \textit{NLTK} para definir si su sentimiento es positivo, negativo o neutral y para dar un resultado más detallado y poder determinar si el sentimiento es de alegría, miedo, sorpresa y amor entre otros se utilizará un diccionario propio con palabras que definen cada uno de los sentimientos.\\
+    	
+    	 El primer estudio se hace para dar un resultado más preciso ya que si sale un sentimiento negativo pero una segunda clasificación de alegría sabremos que algo está mal y por otro lado si da que el sentimiento es negativo se buscará antes sentimientos como enfado o tristeza a los de amor y alegría.
+    	 
+    \newpage
     \subsubsection{Software}
-        {\color{red} 
-        TODO: Hablar de las librerías python utilizadas, diagrama ...
-        }
+    
+    	Para esta frase se utiliza la frase entera sin modificar dado que las librerías \textit{VADER Sentiment} y \textit{Textblob} ya las tratan internamente. Con esto ya sabremos si la frase es positiva, negativa o neutral.\\
+    	
+    	Una vez sabemos si es positiva, negativa o neutral se utilizará la frase modificada por nosotros (sin las palabras que nosotros mismos hemos llamado palabras vacías) y se aplicará un algoritmo con el diccionario propio para saber si los tweets del usuario hablan de alegría, amor, enfado, miedo, sorpresa o tristeza.
+        
+        \begin{figure}[H]
+        	\centering
+        	\includegraphics[height=15.5cm, width=17cm]{imgs/softwareFase2.png}
+        	\caption{Diagrama fase 2 análisis del sentimiento}
+        \end{figure}
     
     	\newpage
-        \paragraph{Vader Sentiment 3.3}
+        \paragraph{VADER Sentiment 3.3}
         
         	VADER (Valence Aware Dictionary and sEntiment Reasoner) es un léxico y una biblioteca de análisis de sentimiento basada en reglas. Sirve como herramienta de análisis de sentimientos basada en reglas que está específicamente adaptada a los sentimientos expresados en las redes sociales.\\
         	
@@ -202,7 +254,7 @@
         \paragraph{NLTK 3.2.2}
 			NLTK (Natural Language Toolkit) es una plataforma líder para construir programas de Python para trabajar con datos de texto natural. Proporciona interfaces fáciles de usar a más de 50 recursos léxicos como WordNet, junto con un conjunto de librerías de procesamiento de texto para clasificación, tokenización, derivación, etiquetado, análisis y razonamiento semántico, envoltorios para bibliotecas de PNL de fuerza industrial, y un foro de discusión activo.\\
 			
-			Contiene una completa documentación (API). Está disponible para Windows, Mac OS X y Linux. NLTK es un proyecto gratuito y de código abierto que ha sido llamado "una herramienta maravillosa para enseñar y trabajar en lingüística computacional usando Python" y "una biblioteca increíble para jugar con el lenguaje natural".
+			Contiene una completa documentación (API). Está disponible para Windows, Mac OS X y Linux. NLTK es un proyecto gratuito y de código abierto que ha sido llamado ``una herramienta maravillosa para enseñar y trabajar en lingüística computacional usando Python'' y ``una biblioteca increíble para jugar con el lenguaje natural''.
 		\newpage		
         \paragraph{Diccionario}
             {\color{red} 

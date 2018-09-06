@@ -89,7 +89,7 @@ import DB, Utils, Algorithms, DataFromInternet, Twitter
 # tweets = Twitter.get_last_weets("as_tomasRoncero", 1)
 #
 # tweets[0].text = "Lionel Messi es el mejor jugador y el que mas me gusta. Creo que es muy buen jugador"
-# #tweets[0].text = "Lionel Messi is the best player"
+# #tweets[0].text = "Lionel Messi es el verdadero the best"
 # #tweets[0].text = "Cristiano Ronaldo es una mierda de jugador, no me gusta mucho y marca goles porque tiene mucha suerte"
 #
 # tweets[0].text = Utils.translate(tweets[0].text, 'en')
