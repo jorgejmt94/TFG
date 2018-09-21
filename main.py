@@ -12,78 +12,62 @@ print()
 
 ''''
 TODO:
-    - Una funcion que coja una frase y pruebe todos los algoritmos
-    - Una funcion que coja 'X' frases y diga por cada algoritmo que 'Y' deportes se hablan
-    - Probar algoritmos de clasificacion con stemer a ver si mejora
     - Un algoritmo más de clasificación de textos
-    - Modificar como dice cada algoritmo de que es
+    - SVM
+    - XGBOOST
     - Decision final es o no verdad :((((((((((
 '''
 
 
 
-''' ############################################
-    ###   Clasificacion de texto tematica    ###
-    ############################################'''
-
-tweets = Twitter.get_last_weets("as_tomasRoncero", 4)
-tweets[0].text = "Messi es un autentico crack, tiene un disparo envidiable, es un autentico killer, le amo"
+tweets = Twitter.get_last_weets("as_tomasRoncero", 5)
+tweets[0].text = "El portero la cogió fuera del área, debio ser falta y amarilla"
+#tweets[0].text = "lionel messi es un autentico crack, tiene un disparo envidiable, es un autentico killer, le amo"
 tweets[1].text = "Ese jab le dejó besando la lona y a Myweather eufórico"
 tweets[2].text = "Canastó de tres en el ultimo minuto, los aficionados de los Lakers no podian ocultar su furia"
 tweets[3].text = "Ese flanker fué a por uvas"
+tweets[4].text = "Ese tio no vale nada"
+
 
 
 ''' HAY QUE QUITAR LOS QUE DEN 0 PUNTOS '''
 
+print()
 
 for tweet in tweets:
     print()
+    print()
     print("····························· Tweet ·····························")
 
-    print()
     print(tweet.text)
     print()
-    print(' ********************** Clasificación por temática ********************** ')
-    print()
-    print(" ----------------------- NaiveBayes -------------------------- ")
-    Algorithms.text_classification_with_naive_bayes(tweet.text)
-    print()
-    print(" ---------------------- Dictionary --------------------------- ")
-    Algorithms.palabras_repetidas_dictionary(tweet.text)
-    print()
-    print(" -------------------- Dictionary&Tree ----------------------- ")
-    Algorithms.palabras_repetidas_dictionary_with_tree(tweet.text)
+    #print(' ********************** Clasificación por temática ********************** ')
+
+    #Algorithms.palabras_repetidas_dictionary(tweet.text)
+    #Algorithms.palabras_repetidas_dictionary_with_tree(tweet.text)
 
 
-
-    #print()
-    #print()
+    print()
+    print()
     print(' ********************** Sentiment Analysis ********************** ')
-    #print()
-    #print(" -------------------------    VADER   ----------------------------- ")
-    #print(Algorithms.analize_sentiment_with_vaderSentiment(tweet.text))
-    #print()
-    #print()
+    print(" -------------------------    VADER   ----------------------------- ")
+    print(Algorithms.analize_sentiment_with_vaderSentiment(tweet.text))
+    print()
+    print()
     #print(" --------------------    VADER traducido   ----------------------- ")
     #print(Algorithms.(tweet.text))
     #print()
-    #print(" --------------------------  TextBlob  ---------------------------- ")
-    #print(Algorithms.analize_sentiment_with_textBlob(tweet.text))
+    print(" --------------------------  TextBlob  ---------------------------- ")
+    print(Algorithms.analize_sentiment_with_textBlob(tweet.text))
+    #print()
+    #print()
     #print(" --------------------  TextBlob traducido  ----------------------- ")
     #print(Algorithms.(tweet.text))
-    #print()
-    print()
-    print(" ------------------------- NaiveBayes ----------------------------- ")
-    Algorithms.analize_sentiment_with_naive_bayes(tweet.text)
     print()
     print(" ------------------------- Dictionary ----------------------------- ")
     Algorithms.analize_sentiment_with_dictionary(tweet.text)
 
 
-
-''' ############################################
-    ###   Clasificacion de texto sentiment   ###
-    ############################################'''
 
 
 

@@ -3,23 +3,51 @@
 %%%%%%%%%%%%%%%%%%
     \section{Sports Fake Detector}
 %%%%%%%%%%%%%%%%%%
-
-	En este apartado se darán a conocer las tecnologías usadas para la implementación del trabajo y su pertinente justificación. Se explican por separado las librerías de python y clases propias utilizadas en cada fase del proyecto.
+	
+	Sports Fake Detector pretende ayudar a descubrir mentiras en Twitter o si más no, dar o quitar veracidad a las noticias que leemos en las redes sociales, concretamente en Twitter.\\
+	
+	Este proyecto consta de cuatro grandes fases donde se intentara conseguir el objetivo de si un tweet de una persona es falso o no. Estas cuatro fases se dividen en:
+	
+	\begin{enumerate}
+		\item \textbf{Fase 0}, donde se tendrá que obtener  los últimos tweets de esa persona así como la creación y obtención de los diccionarios. Se llama fase 0 por ser una tarea previa  a todo el análisis y ser la parte mecánica o tarea sucia del trabajo donde no hay realmente un análisis de la información más allá de descartar todas aquellas palabras cuya aportación de información es nula (como seria el caso de artículos y preposiciones entre otras).
+		
+		\item La siguiente fase, \textbf{fase 1}, es la encargada de decir sobre que estamos hablando, en este trabajo acotado, nos dirá unicamente sobre que deporte o deportes habla esa persona en su Twitter usando la hipótesis propia inicial de que una persona no puede saber de todo o si más no, solo puede ser experto en un acotado número de deportes.
+		
+		\item A continuación, la \textbf{fase 2} pretende saber el tono/sentimiento con el que el autor del tweet lo esta escribiendo. Esto se hace con una hipótesis propia donde se especula que cuando estamos enfadados se escribe lo primero que pensamos e igual no se ciñe del todo a la realidad así como, cuando estamos alegres lo publicamos pensando que es verdad aunque puede que nosotros mismos estamos equivocados y escribamos una mentira. Esta fase se encuentra con muchos problemas como la hironía o la mala sintaxis y de más problemas que serán comentados más adelante.
+		
+		\item Para finalizar, la \textbf{fase 3}, donde se tendrá que recopilar la información anterior, contrastar si la cuenta que lo escribe es un perfil verificado o no, dado que las cuentas verificadas suelen ser de gente pública y por lo tanto, si cuentan mentiras, tendrán un castigo social más importante que si lo escribe alguien cuyo nombre no figura en Twitter. 
+		
+	\end{enumerate}
+	\newpage
+	En la siguiente figura se puede observar un esquema general del proyecto para hacerse una idea de como funciona.
 	
 	\begin{figure}[H]
 		\centering
 		\includegraphics[height=13cm, width=11cm]{imgs/generalSchema.png}
 		\caption{Esquema general del proyecto}
-	\end{figure}
+	\end{figure} 
 	
-	
+\newpage
 \subsection{Tecnologías utilizadas en todas las fases}
+	En este apartado se darán a conocer las tecnologías usadas para la implementación del trabajo y su pertinente justificación. Se explican por separado las librerías de python y clases propias utilizadas en cada fase del proyecto.\\
+	
+	Python y R son los lenguajes de programación más usadso en \textit{data science}. Para este proyecto se ha escogido el uso de Python dado que\cite{RvsPython1}\cite{RvsPython2}:
+	\begin{enumerate}[resume]
+		\setcounter{enumi}{0}
+		\item Python es fácil de utilizar:  Python tiene una reputación de ser fácil de aprender. Con una sintaxis legible, \item Python es ideal para principiantes o para científicos de datos que desean adquirir conocimiento en este lenguaje.
+		\item Python es versátil: Como un lenguaje de propósito general, Python es una herramienta rápida y potente que tiene mucha capacidad. No importa cual sea el problema que quieras resolver, Python puede ayudarte a realizar la tarea, esto gracias a la gran cantidad de librerías con las que cuenta.
+		\item Python es mejor para construir herramientas de análisis: R y Python son bastante buenos si desea analizar un conjunto de datos, pero cuando se trata de construir un servicio web para que otros utilicen los métodos desarrollados, Python es el camino a seguir.
+		\item Visualización de datos con Python: En este aspecto es donde R generalmente le gana a Python. R tiene un amplio rango de herramientas de visualización, tales como, ggplot2, rCharts y googleVis. Más aunque \item Python no se presta en forma natural para la visualización, tiene una amplia gama de librerías disponibles, tales como Matplotlib, Plot.ly y Seaborn.
+		\item La comunidad de Python esta creciendo: Python tiene una gran comunidad, que incluye una fuerte y creciente presencia en la comunidad de las ciencias de datos. PyPi es un lugar útil para explorar todo el alcance de lo que está desarrollando la comunidad.
+		\item Python es mejor para Deep Learning: Hay muchos paquetes, como Theano, Keras y TensorFlow, que hacen que sea realmente fácil crear redes neuronales profundas con Python, y aunque algunos de estos paquetes están siendo portados a R, el soporte disponible en Python es muy superior.
+	\end{enumerate}
+	\newpage
     \subsubsection{MongoDB}
         MongoDB es un sistema de bases de datos NoSql de código abierto orientado a documentos. En lugar de almacenar la información en tablas como se haría en una base de datos relacional, MongoDB guarda la información en forma de documentos JSON, haciendo que la integración de este sistema de información sea mucho más simple y rápido que otros sistemas de bases de datos.\\
         
         MongoDB ha sido muy útil para almacenar de manera eficiente grandes conjuntos de tuits. Para trabajar con este sistema de bases de datos se ha empleado la librería PyMongo, que es la distribución para Python recomendada en la web oficial de MongoDB y que contiene todas las herramientas necesarias. Para el proyecto se ha empleado la versión 3.0.4 de MongoDB.\\
         
-        MongoDB es un sistema fácil de utilizar y que funciona muy bien para guardar textos pero vamos a ver una tabla donde se puede comparar una base de datos como MongoDB con una SQL\footnote{Obtenida en \url{https://blog.pandorafms.org/es/bases-de-datos-nosql/}}.
+        MongoDB es un sistema fácil de utilizar y que funciona muy bien para guardar textos pero vamos a ver una tabla donde se puede comparar una base de datos como MongoDB con una SQL\cite{mongosql}.
         
         \begin{center}
             \begin{tabular}{ | m{3cm} | m{4cm}| m{4cm} | } 
@@ -74,9 +102,12 @@
 \newpage
 \subsection{Fase 0 - Extracción de la información y creación de los datasets}
     \subsubsection{Concepto}
-        Esta primera fase o fase inicial se irá modificando a lo largo de la implementación según se necesite. Pretende englobar tanto la extracción de los tweets como la creación de los diccionarios.\\
+        Esta primera fase 0 o fase inicial se irá modificando a lo largo de la implementación según se necesite. Pretende englobar tanto la extracción de los tweets como la creación de los diccionarios.\\
         
-        Se pretende así que cada deporte tenga tres diccionarios asociados (palabras excluyentes, palabras vinculantes principales y palabras vinculantes secundarias). También se tendrán diccionarios para el análisis de las frases; palabras vacías, que son aquellas palabras que no aportan nada a la hora de clasificar el texto como podrían ser artículos y preposiciones.Por último se tendrá un diccionario asociado a cada uno de los sentimientos a analizar; alegría, amor, enfado, miedo, sorpresa y tristeza.
+        Se pretende así que cada deporte tenga tres diccionarios asociados (palabras excluyentes, palabras vinculantes principales y palabras vinculantes secundarias). También se tendrán diccionarios para el análisis de las frases; palabras vacías, que son aquellas palabras que no aportan nada a la hora de clasificar el texto como podrían ser artículos y preposiciones.Por último se tendrá un diccionario asociado a cada uno de los sentimientos a analizar; alegría, amor, enfado, miedo, sorpresa y tristeza.\\
+        
+        Esta fase también es la encargada de la extracción de los tweets, no solo los X últimos del usuario para saber de que deportes habla sino también de guardar información sobre el usuario (como por ejemplo si el perfil se trata de una cuenta verificada), de si el tweet se trata de un retweet entrar en el perfil del usuario que lo ha publicado y hacer lo mismo que si fuese está persona inicial y por último comprobar los hashtags que ese tweet pueda contener.
+		
     \newpage 
     \subsubsection{Software}
         El esquema de esta fase se puede ver en la siguiente imagen:\\
@@ -130,7 +161,7 @@
     \subsubsection{Concepto}
     	Para la clasificación de los tweets según su temática se hará uso de diferentes algoritmos y técnicas con la finalidad de conocer sobre qué temas escribe cada usuario de Twitter. La finalidad de esta fase por una parte es acotar los temas sobre los que habla cada usuario dada la suposición que lo más común en usuarios de Twitter (si nos centramos en los deportes) es que les guste mucho uno o dos deportes y sepan mucho de ellos y que luego sean simpatizantes de otros deportes. Por ejemplo en mi caso me gusta mucho el fútbol y el rugby y a veces miro el baloncesto o las carreras de motos gp pero no entiendo tanto de esos deportes como de mis favoritos. \\
     	
-    	Para ello esta fase se centrará en recopilar los últimos tweets de un usuario, analizar sus \textit{hastags}, investigar la posible mención de usuarios en los tweets y averiguar también los deportes de aquel usuario y por último  si hizo algún \textit{retweet} también extraer la misma información de esa cuenta.\\
+    	Para ello esta fase se centrará en recopilar los últimos tweets de un usuario, analizar sus \textit{hastags}, investigar la posible mención de usuarios en los tweets y averiguar también los deportes de aquel usuario y por último  si hizo algún \textit{retweet}  obtener la información sobre la otra cuenta obtenida en la fase anterior.\\
     	
     	Con el fin de conseguir todo esto se aplicarán diferentes técnicas para obtener lo que realmente nos interesa de cada tweet (palabras clave, \textit{hastags}, menciones a otros usuarios, etc) y una vez extraídas y \textit{tokenizadas} se aplicarán diferentes técnicas para su clasificación como sería primero eliminación de las palabras que no nos interesan, aplicación de diferentes algoritmos como Naive Bayes y el uso de un diccionario propio con palabras clave, palabras secundarias y palabras excluyentes de cada deporte.
     	
@@ -175,7 +206,7 @@
         
         	El clasificador Naive Bayes es un clasificador probabilístico que se basa en el teorema de Bayes con suposiciones de independencia. Es una de las técnicas de clasificación de texto más básicas con varias aplicaciones en la detección de spam en el correo electrónico, clasificación de correo electrónico personal, categorización de documentos, detección de lenguaje y detección de sentimiento. \\
         	
-        	Como se ha comentado se basa en el teorema de Bayes así que primero lo comentaremos y se usará como ejemplo la clasificación de texto. Se usa para predecir la probabilidad condicional de que un documento pertenezca a una clase P(c{\tiny i}$|$d{\tiny j}) a partir de la probabilidad de los documentos dada la clase P(d{\tiny j} $|$c{\tiny i}) y la probabilidad a priori de la clase en el conjunto de entrenamiento P(c{\tiny i})
+        	Como se ha comentado se basa en el teorema de Bayes así que primero lo comentaremos y se usará como ejemplo la clasificación de texto. Se usa para predecir la probabilidad condicional de que un documento pertenezca a una clase P(c{\tiny i}$|$d{\tiny j}) a partir de la probabilidad de los documentos dada la clase P(d{\tiny j} $|$c{\tiny i}) y la probabilidad a priori de la clase en el conjunto de entrenamiento P(c{\tiny i})\cite{naiveBayes}.
         	
         	\begin{figure}[H]
         		\centering
@@ -196,11 +227,53 @@
         	Este algoritmo también se usará en la fase 2 para el análisis del sentimiento.
             
         \newpage
-        \paragraph{Diccionario}
-        	
-            {\color{red} 
-                TODO
-            }
+	    \paragraph{Support Vector Machine (SVM)}
+	    
+		    Las Máquinas de Vectores Soporte, creadas por Vladimir Vapnik, constituyen un método basado en aprendizaje para la resolución de problemas de clasificación y regresión. En ambos casos, esta resolución se basa en una primera fase de entrenamiento (donde se les informa con múltiples ejemplos ya resueltos, en forma de pares (problema, solución)) y una segunda fase de uso para la resolución de problemas. En ella, las SVM se convierten en una “caja negra” que proporciona una respuesta (salida) a un problema dado (entrada).\\
+		    
+		    Dado un conjunto de puntos, subconjunto de un conjunto mayor (espacio), en el que cada uno de ellos pertenece a una de dos posibles categorías, un algoritmo basado en SVM construye un modelo capaz de predecir si un punto nuevo (cuya categoría desconocemos) pertenece a una categoría o a la otra.\\
+		    
+		    Como en la mayoría de los métodos de clasificación supervisada, los datos de entrada (los puntos) son vistos como un vector p-dimensional (una lista ordenada de p números). La SVM busca un hiperplano que separe de forma óptima a los puntos de una clase de la de otra, que eventualmente han podido ser previamente proyectados a un espacio de dimensionalidad superior. En la siguiente figura se puede observar ejemplos de como divide el espacio del conjunto de datos mas famoso del mundo en el ámbito de la inteligencia artificial (iris dataset) donde p sería tres. \\
+		    
+		    \begin{figure}[H]
+		    	\centering
+		    	\includegraphics[height=11cm, width=11cm]{imgs/SVMExplicacion.png}
+		    	\caption{Ejemplo SVM\cite{svmexplicacion}}
+		    \end{figure}
+		    
+		    En ese concepto de "separación óptima" es donde reside la característica fundamental de las SVM: este tipo de algoritmos buscan el hiperplano que tenga la máxima distancia (margen) con los puntos que estén más cerca de él mismo. Por eso también a veces se les conoce a las SVM como clasificadores de margen máximo. De esta forma, los puntos del vector que son etiquetados con una categoría estarán a un lado del hiperplano y los casos que se encuentren en la otra categoría estarán al otro lado.
+        
+        \newpage
+    	\paragraph{Random Forest Model}
+    	
+	    	Se trata de un método desarrollado por Leo Breiman y Adele Cutler en 2001 . Este método utiliza un conjunto (o bosque) de arboles de decisión para predecir un valor de salida. Para la clasificación de un nuevo ejemplo, cada árbol en el ensamble produce un voto, es decir, toma el ejemplo como entrada y produce una salida indicando a que clase pertenece. La decisión final del ensamble se realiza a partir de la clase con mayor cantidad de votos.\\
+	    	
+	    	La idea esencial del \textit{bagging} es promediar muchos modelos ruidosos pero aproximadamente imparciales, y por tanto reducir la variación. Los árboles son los candidatos ideales para el \textit{bagging}, dado que ellos pueden registrar estructuras de interacción compleja en los datos, y si crecen suficientemente profundo, tienen relativamente baja parcialidad. Producto de que los árboles son notoriamente ruidosos, ellos se benefician enormemente al promediar.\\
+	    	
+	    	Cada árbol es construido usando el siguiente algoritmo\cite{RandomForestModel}:
+	    	\begin{enumerate}[resume]
+	    		\setcounter{enumi}{0}
+		    	\item Sea N el número de casos de prueba, M es el número de variables en el clasificador.
+		    	\item Sea m el número de variables de entrada a ser usado para determinar la decisión en un nodo dado; m debe ser mucho menor que M
+		    	\item Elegir un conjunto de entrenamiento para este árbol y usar el resto de los casos de prueba para estimar el error.
+		    	\item Para cada nodo del árbol, elegir aleatoriamente m variables en las cuales basar la decisión. Calcular la mejor partición del conjunto de entrenamiento a partir de las m variables.
+	        \end{enumerate}
+        
+        	Para la predicción un nuevo caso es empujado hacia abajo por el árbol. Luego se le asigna la etiqueta del nodo terminal donde termina. Este proceso es iterado por todos los árboles en el ensamblado, y la etiqueta que obtenga la mayor cantidad de incidencias es reportada como la predicción.
+  		\newpage
+    	\paragraph{XGBoost (Xtereme Gradient Boosting Model)}
+
+			XGBoost significa eXtreme Gradient Boosting. Es el algoritmo que ha estado dominando recientemente los problemas Machine learning y las competiciones de Kaggle con datos estructurados o tabulares. XGBoost es una implementación de árboles de decisión con Gradient boosting diseñada para minimizar la velocidad de ejecución y maximizar el rendimiento. Posee una interface para varios lenguajes de programación, entre los que se incluyen Python, R, Julia y Scala.\\
+			
+			XGBoost es una implementación de código abierto popular y eficiente del algoritmo de árboles aumentados. La potenciación de gradientes es un algoritmo de aprendizaje supervisado que intenta predecir de forma apropiada una variable de destino mediante la combinación de estimaciones de un conjunto de modelos más simples y más débiles.\cite{XGBoost}.\\
+			
+			Internamente, XGBoost representa todos los problemas como un caso de modelado predictivo de regresión que sólo toma valores numéricos como entrada. Si nuestros datos están en un formato diferente, primero vamos a tener que transformarlos para poder hacer uso de todo el poder de esta librería. El hecho de trabajar sólo con datos numéricos es lo que hace que esta librería sea tan eficiente.
+		 
+		 \paragraph{Diccionario}
+		
+			Se ha creado un algoritmo propio muy sencillo y con el cual se han tenido muy buenos resultados. Recordemos que tenemos tres diccionarios por cada uno de los deportes (para la parte de clasificación de texto según la temática), uno con las palabras clave donde si se encuentra esa palabra ya sabremos con bastante seguridad que se trata de ese deporte, uno con palabras secundarias con el cual el que más repeticiones de palabras tenga será el deporte del cual se estará hablando y un diccionario de palabras excluyentes para poder romper posibles empates en cuanto palabras secundarias.
+		
+
 
 \newpage
 \subsection{Fase 2 - Análisis del sentimiento}
@@ -214,7 +287,7 @@
     \newpage
     \subsubsection{Software}
     
-    	Para esta frase se utiliza la frase entera sin modificar dado que las librerías \textit{VADER Sentiment} y \textit{Textblob} ya las tratan internamente. Con esto ya sabremos si la frase es positiva, negativa o neutral.\\
+    	Para esta frase se utiliza la frase entera sin modificar dado que las librerías \textit{VADER Sentiment} y \textit{Textblob} ya las tratan internamente. Con esto ya sabremos si la frase es positiva, negativa o neutral\cite{VADER}.\\
     	
     	Una vez sabemos si es positiva, negativa o neutral se utilizará la frase modificada por nosotros (sin las palabras que nosotros mismos hemos llamado palabras vacías) y se aplicará un algoritmo con el diccionario propio para saber si los tweets del usuario hablan de alegría, amor, enfado, miedo, sorpresa o tristeza.
         
@@ -247,22 +320,38 @@
         
 		\newpage
         \paragraph{TextBlob 0.15.1}
-        	TextBlob es una librería de Python (2 y 3) para procesar datos textuales. Proporciona una API simple para adentrarse en tareas comunes de procesamiento del lenguaje natural (NLP), como etiquetado parcial, extracción de frase nominal, análisis de sentimiento, clasificación y traducción.\\
+        	TextBlob es una librería de Python (2 y 3) para procesar datos textuales. Proporciona una API simple para adentrarse en tareas comunes de procesamiento del lenguaje natural (NLP), como etiquetado parcial, extracción de frase nominal, análisis de sentimiento, clasificación y traducción\cite{TextBlob}.\\
         	
         	En esta fase se ha utilizado esta librería para traducir tweets de otros idiomas y para la clasificación del sentimiento se escogió esta librería porque que ofrece una API simple para acceder a sus métodos y realizar tareas NLP básicas.
         	
         \paragraph{NLTK 3.2.2}
-			NLTK (Natural Language Toolkit) es una plataforma líder para construir programas de Python para trabajar con datos de texto natural. Proporciona interfaces fáciles de usar a más de 50 recursos léxicos como WordNet, junto con un conjunto de librerías de procesamiento de texto para clasificación, tokenización, derivación, etiquetado, análisis y razonamiento semántico, envoltorios para bibliotecas de PNL de fuerza industrial, y un foro de discusión activo.\\
+			NLTK (Natural Language Toolkit) es una plataforma líder para construir programas de Python para trabajar con datos de texto natural. Proporciona interfaces fáciles de usar a más de 50 recursos léxicos como WordNet, junto con un conjunto de librerías de procesamiento de texto para clasificación, tokenización, derivación, etiquetado, análisis y razonamiento semántico, envoltorios para bibliotecas de PNL de fuerza industrial, y un foro de discusión activo\cite{NLTK}.\\
 			
 			Contiene una completa documentación (API). Está disponible para Windows, Mac OS X y Linux. NLTK es un proyecto gratuito y de código abierto que ha sido llamado ``una herramienta maravillosa para enseñar y trabajar en lingüística computacional usando Python'' y ``una biblioteca increíble para jugar con el lenguaje natural''.
-		\newpage		
-        \paragraph{Diccionario}
-            {\color{red} 
-            TODO: SENTIMENT ANALYSIS WORDS
-            }
-\newpage
-\subsection{Fase 3 - }
-    \subsubsection{Concepto}
 
-    \subsubsection{Software}
+        \paragraph{Diccionario}
+        
+            Para la implementación de este algoritmo, a diferencia de la fase anterior, solo tenemos un diccionario propio por cada una de las palabras. El algoritmo se basa simplemente en averiguar si las palabras escritas en el tweet se encuentran o no en alguno de los diccionarios implementados para cada uno de los sentimientos. Gracias al algoritmo VADER sentiment ya podemos hacer un primer descarte de sentimientos.
+\newpage
+\subsection{Fase 3 - Decisión final}
+
+		Esta última fase es donde se encuentra el cerebro de la aplicación, tendrá que recopilar la información anterior y decidir si la persona ha mentido o no. Se trata de la fase más complicada y que por ello conlleva más problemas. Si en las fases anteriores se tenía dudas se puede imaginar que si sumas un grado fiabilidad alto pero lejano al 100\% como nos ocurre con la clasificación de texto según la temática con una fiabilidad cercana al 50\% como tenemos en el análisis del sentimiento, lo que se obtiene es una fiabilidad aun menor y si a ello le sumas hipótesis propias que no tienen un grado de fiabilidad definido, lo que se acaba obteniendo es un \textit{cocktail} que habrá que saber manejar con cuidado.\\
+		
+		Las hipótesis mas relevantes a tener en cuenta son:
+		\begin{enumerate}
+			\item Una persona que opina de todo es más propensa a mentir aunque sea por desconocimiento de las cosas a una persona que opina sobre uno o dos deportes donde igual es periodista, jugador de ese deporte o un aficionado interesado profundamente a ese deporte.
+			\item Un fanático o persona que habla sobre ese deporte y esta enfadado insulta y habla mal de los jugadores sin apenas pensar y no tiene por que ser verdad al igual que cuando escribe con miedo espera que ese texto escrito por él mismo no sea verdad.
+			\item  Contrastar si el perfil que lo escribe es una cuenta verificada o no, dado que las cuentas verificadas suelen ser de gente pública y por lo tanto, si cuentan mentiras, tendrán un castigo social más importante que si lo escribe alguien cuyo nombre no figura en Twitter. 
+			\item Si la persona que lo escribe es alguien importante del deporte suele tener muchos \textit{retweets} y por lo tanto numerosos tweets parecidos al suyo por lo tanto, si se busca ese \textit{hashtag} se deberían tener comentarios similares.
+			\newpage
+			\item Los textos con los emoticonos;
+			\begin{figure}[H]
+				\centering
+				\includegraphics[height=4cm, width=6cm]{imgs/emotis.png}
+			\end{figure}
+			entre otros, suelen ser los escritos con hironía y por lo tanto, los más difíciles de clasificar.
+			\item Si escribes mal de un equipo o jugador o deportista no pertenece a tu equipo o en el caso de las olimpiadas a tu país, no habría que hacer mucho caso de lo escrito dado que se escribirá en parte desde el rencor y so por lo contrario escribes bien sobre el habría que intentar detectar la hironía porque a no ser que haya hecho realmente el mejor partido o carrera de su vida, seguramente se habrá escrito una mentira.
+		\end{enumerate}
+		 
+
 \end{document}

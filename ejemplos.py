@@ -60,6 +60,33 @@ import DB, Utils, Algorithms, DataFromInternet, Twitter
 ###
 
 
+''' ##################################
+    ###   Insertar twits           ###
+    ##################################'''
+
+# labels, texts,users = [], [], []
+#
+# print('Descargando tweets...')
+# for sport_n in range(0, 13):
+#     data = Twitter.get_twees_by_hashtag(Utils.get_data_name(sport_n), n_tweets=1000)
+#     for tweet in data:
+#         labels.append(sport_n)
+#         texts.append(Twitter.clean_tweet_2(tweet).text)
+#         users.append(tweet.user.name)
+# print('Descarga de tweets finalizada!')
+#
+# i=0
+# for text in texts:
+#     data_json = {
+#         'type': Utils.get_data_name(labels[i]),
+#         'content': text,
+#         'user': users[i]
+#     }
+#     DB.INSERT_json_toDB('train', 'tweets', data_json)
+#     i=i+1
+# ##
+
+
 ''' ####################################
     ###  clasificar por diccionario  ###
     ####################################'''
@@ -192,7 +219,9 @@ import DB, Utils, Algorithms, DataFromInternet, Twitter
 #     print("{:-<70} {}".format(sentence, str(vs)))
 
 
-#### Stemmer ###
+''' ##########################################################
+    ###                   Stemmer example                  ###
+    ##########################################################'''
 # from nltk.stem import SnowballStemmer
 # from nltk.tokenize import word_tokenize
 # def stem(word):
@@ -203,6 +232,28 @@ import DB, Utils, Algorithms, DataFromInternet, Twitter
 # stemmed = []
 # for item in text_tokens:
 #     stemmed.append(stem(item))
-# print()
+# print('\nExample 1')
 # print('Input: ', new_text )
-# print('Output:', stemmed )
+# print('Output stemmed:', stemmed )
+# print('Output stemmed and without empty words:', Utils.delete_empty_words(stemmed))
+#
+# new_text = "Lionel Messi es el mejor jugador del mundo, su zurda es envidiable"
+# text_tokens = word_tokenize(new_text)
+# stemmed = []
+# for item in text_tokens:
+#     stemmed.append(stem(item))
+# print('\nExample 2')
+# print('Input: ', new_text )
+# print('Output stemmed:', stemmed )
+# print('Output stemmed and without empty words:', Utils.delete_empty_words(stemmed))
+##
+
+
+
+
+
+
+
+
+
+

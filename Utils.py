@@ -16,24 +16,8 @@ def get_data_id(data_name):
               'Atletismo':  8,
               'Voleibol':   9,
               'Rugby':      10,
-              'Motociclismo':     11, #formula1
+              'Motociclismo':     11,       #formula1
               'Futbol americano': 12,}
-
-    return data[data_name.lower()]
-def get_data_id_lower(data_name):
-    data ={ 'futbol':       0,
-              'baloncesto': 1,
-              'golf':       2,
-              'boxeo':      3,
-              'judo':       4,
-              'balonmano':  5,
-              'tenis':      6,
-              'ciclismo':   7,
-              'atletismo':  8,
-              'voleibol':   9,
-              'rugby':      10,
-              'motociclismo':     11, #formula1
-              'futbol americano': 12,}
 
     return data[data_name.lower()]
 
@@ -54,6 +38,22 @@ def get_data_name(data_id):
 
     return data[data_id]
 
+def get_data_id_lower(data_name):
+    data ={ 'futbol':       0,
+              'baloncesto': 1,
+              'golf':       2,
+              'boxeo':      3,
+              'judo':       4,
+              'balonmano':  5,
+              'tenis':      6,
+              'ciclismo':   7,
+              'atletismo':  8,
+              'voleibol':   9,
+              'rugby':      10,
+              'motociclismo':     11, #formula1
+              'futbol americano': 12,}
+
+    return data[data_name.lower()]
 
 def get_sentiment_id(data_name):
     data ={   'alegria':    0,

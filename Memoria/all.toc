@@ -1,107 +1,107 @@
 \babel@toc {spanish}{}
 \babel@toc {spanish}{}
-\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{5}{section.1}
-\contentsline {subsection}{\numberline {1.1}Contexto}{5}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Motivaciones}{8}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Objetivos Trabajo Final de Grado}{9}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}Estructuraci\IeC {\'o}n de la memoria}{10}{subsection.1.4}
-\contentsline {section}{\numberline {2}Trabajo Relacionado}{11}{section.2}
-\contentsline {section}{\numberline {3}Sports Fake Detector}{13}{section.3}
-\contentsline {subsection}{\numberline {3.1}Tecnolog\IeC {\'\i }as utilizadas en todas las fases}{13}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}MongoDB}{13}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Pymongo 3.7.1}{15}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}AVL Tree}{15}{subsubsection.3.1.3}
-\contentsline {subsection}{\numberline {3.2}Fase 0 - Extracci\IeC {\'o}n de la informaci\IeC {\'o}n y creaci\IeC {\'o}n de los datasets}{17}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Concepto}{17}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Software}{18}{subsubsection.3.2.2}
-\contentsline {paragraph}{\numberline {3.2.2.1}Wikipedia 1.4.0}{19}{paragraph.3.2.2.1}
-\contentsline {paragraph}{\numberline {3.2.2.2}Pymongo 2.7}{20}{paragraph.3.2.2.2}
-\contentsline {paragraph}{\numberline {3.2.2.3}Tweepy 3.5}{21}{paragraph.3.2.2.3}
-\contentsline {subsection}{\numberline {3.3}Fase 1 - Clasificaci\IeC {\'o}n de texto seg\IeC {\'u}n tem\IeC {\'a}tica}{22}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Concepto}{22}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}Software}{23}{subsubsection.3.3.2}
-\contentsline {paragraph}{\numberline {3.3.2.1}Stemmer}{24}{paragraph.3.3.2.1}
-\contentsline {paragraph}{\numberline {3.3.2.2}Naive Bayes}{25}{paragraph.3.3.2.2}
-\contentsline {paragraph}{\numberline {3.3.2.3}Diccionario}{26}{paragraph.3.3.2.3}
-\contentsline {subsection}{\numberline {3.4}Fase 2 - An\IeC {\'a}lisis del sentimiento}{27}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Concepto}{27}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}Software}{28}{subsubsection.3.4.2}
-\contentsline {paragraph}{\numberline {3.4.2.1}VADER Sentiment 3.3}{29}{paragraph.3.4.2.1}
-\contentsline {paragraph}{\numberline {3.4.2.2}TextBlob 0.15.1}{30}{paragraph.3.4.2.2}
-\contentsline {paragraph}{\numberline {3.4.2.3}NLTK 3.2.2}{30}{paragraph.3.4.2.3}
-\contentsline {paragraph}{\numberline {3.4.2.4}Diccionario}{31}{paragraph.3.4.2.4}
-\contentsline {subsection}{\numberline {3.5}Fase 3 - }{32}{subsection.3.5}
-\contentsline {subsubsection}{\numberline {3.5.1}Concepto}{32}{subsubsection.3.5.1}
-\contentsline {subsubsection}{\numberline {3.5.2}Software}{32}{subsubsection.3.5.2}
-\contentsline {section}{\numberline {4}Experimentaci\IeC {\'o}n}{33}{section.4}
-\contentsline {subsection}{\numberline {4.1}Problem\IeC {\'a}tica lenguaje natural}{33}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Homonimia}{33}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}Polisemia}{34}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}An\IeC {\'a}fora y elipses}{35}{subsubsection.4.1.3}
-\contentsline {subsubsection}{\numberline {4.1.4}Sintaxis no normalizada}{35}{subsubsection.4.1.4}
-\contentsline {subsubsection}{\numberline {4.1.5}Contexto}{36}{subsubsection.4.1.5}
-\contentsline {subsubsection}{\numberline {4.1.6}Otras circunstancias}{36}{subsubsection.4.1.6}
-\contentsline {subsection}{\numberline {4.2}Fase 0 - Extracci\IeC {\'o}n de la informaci\IeC {\'o}n}{37}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Fase 1 - Clasificaci\IeC {\'o}n de texto seg\IeC {\'u}n tem\IeC {\'a}tica}{38}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Fase 2 - An\IeC {\'a}lisis del sentimiento}{40}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Fase 3 -}{41}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Utilizaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{42}{subsection.4.6}
-\contentsline {section}{\numberline {5}Costes del proyecto}{43}{section.5}
-\contentsline {subsection}{\numberline {5.1}Costes econ\IeC {\'o}micos}{43}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Costes temporales}{43}{subsection.5.2}
-\contentsline {section}{\numberline {6}Comentario final}{44}{section.6}
-\contentsline {subsection}{\numberline {6.1}Conclusiones}{44}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Objetivos}{45}{subsection.6.2}
-\contentsline {section}{\numberline {7}L\IeC {\'\i }neas de futuro}{46}{section.7}
-\contentsline {section}{\numberline {8}Bibliograf\IeC {\'\i }a}{47}{section.8}
-\contentsline {section}{\numberline {9}Anexos}{48}{section.9}
-\contentsline {subsection}{\numberline {9.1}Palabras clave}{48}{subsection.9.1}
-\contentsline {subsubsection}{\numberline {9.1.1}Atletismo}{48}{subsubsection.9.1.1}
-\contentsline {subsubsection}{\numberline {9.1.2}Baloncesto}{48}{subsubsection.9.1.2}
-\contentsline {subsubsection}{\numberline {9.1.3}Balonmano}{48}{subsubsection.9.1.3}
-\contentsline {subsubsection}{\numberline {9.1.4}Boxeo}{48}{subsubsection.9.1.4}
-\contentsline {subsubsection}{\numberline {9.1.5}Ciclismo}{49}{subsubsection.9.1.5}
-\contentsline {subsubsection}{\numberline {9.1.6}F\IeC {\'u}tbol}{49}{subsubsection.9.1.6}
-\contentsline {subsubsection}{\numberline {9.1.7}F\IeC {\'u}tbol Americano}{49}{subsubsection.9.1.7}
-\contentsline {subsubsection}{\numberline {9.1.8}Golf}{50}{subsubsection.9.1.8}
-\contentsline {subsubsection}{\numberline {9.1.9}Judo}{50}{subsubsection.9.1.9}
-\contentsline {subsubsection}{\numberline {9.1.10}Motociclismo}{50}{subsubsection.9.1.10}
-\contentsline {subsubsection}{\numberline {9.1.11}Rugby}{50}{subsubsection.9.1.11}
-\contentsline {subsubsection}{\numberline {9.1.12}Tenis}{50}{subsubsection.9.1.12}
-\contentsline {subsubsection}{\numberline {9.1.13}Voleibol}{51}{subsubsection.9.1.13}
-\contentsline {subsection}{\numberline {9.2}Palabras secundarias}{52}{subsection.9.2}
-\contentsline {subsubsection}{\numberline {9.2.1}Atletismo}{52}{subsubsection.9.2.1}
-\contentsline {subsubsection}{\numberline {9.2.2}Baloncesto}{52}{subsubsection.9.2.2}
-\contentsline {subsubsection}{\numberline {9.2.3}Balonmano}{52}{subsubsection.9.2.3}
-\contentsline {subsubsection}{\numberline {9.2.4}Boxeo}{53}{subsubsection.9.2.4}
-\contentsline {subsubsection}{\numberline {9.2.5}Ciclismo}{53}{subsubsection.9.2.5}
-\contentsline {subsubsection}{\numberline {9.2.6}F\IeC {\'u}tbol}{53}{subsubsection.9.2.6}
-\contentsline {subsubsection}{\numberline {9.2.7}F\IeC {\'u}tbol Americano}{54}{subsubsection.9.2.7}
-\contentsline {subsubsection}{\numberline {9.2.8}Golf}{55}{subsubsection.9.2.8}
-\contentsline {subsubsection}{\numberline {9.2.9}Judo}{55}{subsubsection.9.2.9}
-\contentsline {subsubsection}{\numberline {9.2.10}Motociclismo}{55}{subsubsection.9.2.10}
-\contentsline {subsubsection}{\numberline {9.2.11}Rugby}{55}{subsubsection.9.2.11}
-\contentsline {subsubsection}{\numberline {9.2.12}Tenis}{56}{subsubsection.9.2.12}
-\contentsline {subsubsection}{\numberline {9.2.13}Voleibol}{56}{subsubsection.9.2.13}
-\contentsline {subsection}{\numberline {9.3}Palabras excluyentes}{57}{subsection.9.3}
-\contentsline {subsubsection}{\numberline {9.3.1}Atletismo}{57}{subsubsection.9.3.1}
-\contentsline {subsubsection}{\numberline {9.3.2}Baloncesto}{57}{subsubsection.9.3.2}
-\contentsline {subsubsection}{\numberline {9.3.3}Balonmano}{57}{subsubsection.9.3.3}
-\contentsline {subsubsection}{\numberline {9.3.4}Boxeo}{57}{subsubsection.9.3.4}
-\contentsline {subsubsection}{\numberline {9.3.5}Ciclismo}{57}{subsubsection.9.3.5}
-\contentsline {subsubsection}{\numberline {9.3.6}F\IeC {\'u}tbol}{57}{subsubsection.9.3.6}
-\contentsline {subsubsection}{\numberline {9.3.7}F\IeC {\'u}tbol Americano}{57}{subsubsection.9.3.7}
-\contentsline {subsubsection}{\numberline {9.3.8}Golf}{57}{subsubsection.9.3.8}
-\contentsline {subsubsection}{\numberline {9.3.9}Judo}{57}{subsubsection.9.3.9}
-\contentsline {subsubsection}{\numberline {9.3.10}Motociclismo}{58}{subsubsection.9.3.10}
-\contentsline {subsubsection}{\numberline {9.3.11}Rugby}{58}{subsubsection.9.3.11}
-\contentsline {subsubsection}{\numberline {9.3.12}Tenis}{58}{subsubsection.9.3.12}
-\contentsline {subsubsection}{\numberline {9.3.13}Voleibol}{58}{subsubsection.9.3.13}
-\contentsline {subsection}{\numberline {9.4}Palabras vac\IeC {\'\i }as}{59}{subsection.9.4}
-\contentsline {subsection}{\numberline {9.5}Palabras en an\IeC {\'a}lisis del sentimiento}{60}{subsection.9.5}
-\contentsline {subsubsection}{\numberline {9.5.1}Alegr\IeC {\'\i }a}{60}{subsubsection.9.5.1}
-\contentsline {subsubsection}{\numberline {9.5.2}Amor}{60}{subsubsection.9.5.2}
-\contentsline {subsubsection}{\numberline {9.5.3}Enfado}{60}{subsubsection.9.5.3}
-\contentsline {subsubsection}{\numberline {9.5.4}Miedo}{60}{subsubsection.9.5.4}
-\contentsline {subsubsection}{\numberline {9.5.5}Sorpresa}{60}{subsubsection.9.5.5}
-\contentsline {subsubsection}{\numberline {9.5.6}Tristeza}{60}{subsubsection.9.5.6}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{12}{section.1}
+\contentsline {subsection}{\numberline {1.1}Contexto}{12}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Motivaciones}{15}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Objetivos Trabajo Final de Grado}{16}{subsection.1.3}
+\contentsline {section}{\numberline {2}Trabajo Relacionado}{17}{section.2}
+\contentsline {section}{\numberline {3}Sports Fake Detector}{19}{section.3}
+\contentsline {subsection}{\numberline {3.1}Tecnolog\IeC {\'\i }as utilizadas en todas las fases}{21}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}MongoDB}{22}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Pymongo 3.7.1}{23}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}AVL Tree}{23}{subsubsection.3.1.3}
+\contentsline {subsection}{\numberline {3.2}Fase 0 - Extracci\IeC {\'o}n de la informaci\IeC {\'o}n y creaci\IeC {\'o}n de los datasets}{25}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Concepto}{25}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Software}{26}{subsubsection.3.2.2}
+\contentsline {paragraph}{\numberline {3.2.2.1}Wikipedia 1.4.0}{27}{paragraph.3.2.2.1}
+\contentsline {paragraph}{\numberline {3.2.2.2}Pymongo 2.7}{28}{paragraph.3.2.2.2}
+\contentsline {paragraph}{\numberline {3.2.2.3}Tweepy 3.5}{29}{paragraph.3.2.2.3}
+\contentsline {subsection}{\numberline {3.3}Fase 1 - Clasificaci\IeC {\'o}n de texto seg\IeC {\'u}n tem\IeC {\'a}tica}{30}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Concepto}{30}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Software}{31}{subsubsection.3.3.2}
+\contentsline {paragraph}{\numberline {3.3.2.1}Stemmer}{32}{paragraph.3.3.2.1}
+\contentsline {paragraph}{\numberline {3.3.2.2}Naive Bayes}{33}{paragraph.3.3.2.2}
+\contentsline {paragraph}{\numberline {3.3.2.3}Support Vector Machine (SVM)}{34}{paragraph.3.3.2.3}
+\contentsline {paragraph}{\numberline {3.3.2.4}Random Forest Model}{36}{paragraph.3.3.2.4}
+\contentsline {paragraph}{\numberline {3.3.2.5}XGBoost (Xtereme Gradient Boosting Model)}{37}{paragraph.3.3.2.5}
+\contentsline {paragraph}{\numberline {3.3.2.6}Diccionario}{37}{paragraph.3.3.2.6}
+\contentsline {subsection}{\numberline {3.4}Fase 2 - An\IeC {\'a}lisis del sentimiento}{38}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Concepto}{38}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Software}{39}{subsubsection.3.4.2}
+\contentsline {paragraph}{\numberline {3.4.2.1}VADER Sentiment 3.3}{40}{paragraph.3.4.2.1}
+\contentsline {paragraph}{\numberline {3.4.2.2}TextBlob 0.15.1}{41}{paragraph.3.4.2.2}
+\contentsline {paragraph}{\numberline {3.4.2.3}NLTK 3.2.2}{41}{paragraph.3.4.2.3}
+\contentsline {paragraph}{\numberline {3.4.2.4}Diccionario}{41}{paragraph.3.4.2.4}
+\contentsline {subsection}{\numberline {3.5}Fase 3 - Decisi\IeC {\'o}n final}{42}{subsection.3.5}
+\contentsline {section}{\numberline {4}Experimentaci\IeC {\'o}n}{44}{section.4}
+\contentsline {subsection}{\numberline {4.1}Problem\IeC {\'a}tica lenguaje natural}{44}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Homonimia}{44}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Polisemia}{45}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}An\IeC {\'a}fora y elipses}{46}{subsubsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.4}Sintaxis no normalizada}{46}{subsubsection.4.1.4}
+\contentsline {subsubsection}{\numberline {4.1.5}Contexto}{47}{subsubsection.4.1.5}
+\contentsline {subsubsection}{\numberline {4.1.6}Otras circunstancias}{47}{subsubsection.4.1.6}
+\contentsline {subsection}{\numberline {4.2}Fase 0 - Extracci\IeC {\'o}n de la informaci\IeC {\'o}n}{48}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Fase 1 - Clasificaci\IeC {\'o}n de texto seg\IeC {\'u}n tem\IeC {\'a}tica}{55}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Fase 2 - An\IeC {\'a}lisis del sentimiento}{61}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Fase 3 -}{62}{subsection.4.5}
+\contentsline {section}{\numberline {5}Costes del proyecto}{63}{section.5}
+\contentsline {subsection}{\numberline {5.1}Costes temporales}{63}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Costes econ\IeC {\'o}micos}{63}{subsection.5.2}
+\contentsline {section}{\numberline {6}Conclusiones y l\IeC {\'\i }neas de futuro}{64}{section.6}
+\contentsline {subsection}{\numberline {6.1}Conclusiones}{64}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}L\IeC {\'\i }neas de futuro}{65}{subsection.6.2}
+\contentsline {section}{\numberline {7}Bibliografia}{67}{section.7}
+\contentsline {section}{\numberline {8}Anexos}{72}{section.8}
+\contentsline {subsection}{\numberline {8.1}Ontolog\IeC {\'\i }a de los deportes}{72}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Diccionarios}{73}{subsection.8.2}
+\contentsline {subsubsection}{\numberline {8.2.1}Palabras clave}{73}{subsubsection.8.2.1}
+\contentsline {paragraph}{\numberline {8.2.1.1}Atletismo}{73}{paragraph.8.2.1.1}
+\contentsline {paragraph}{\numberline {8.2.1.2}Baloncesto}{73}{paragraph.8.2.1.2}
+\contentsline {paragraph}{\numberline {8.2.1.3}Balonmano}{73}{paragraph.8.2.1.3}
+\contentsline {paragraph}{\numberline {8.2.1.4}Boxeo}{73}{paragraph.8.2.1.4}
+\contentsline {paragraph}{\numberline {8.2.1.5}Ciclismo}{74}{paragraph.8.2.1.5}
+\contentsline {paragraph}{\numberline {8.2.1.6}F\IeC {\'u}tbol}{74}{paragraph.8.2.1.6}
+\contentsline {paragraph}{\numberline {8.2.1.7}F\IeC {\'u}tbol Americano}{74}{paragraph.8.2.1.7}
+\contentsline {paragraph}{\numberline {8.2.1.8}Golf}{74}{paragraph.8.2.1.8}
+\contentsline {paragraph}{\numberline {8.2.1.9}Judo}{75}{paragraph.8.2.1.9}
+\contentsline {paragraph}{\numberline {8.2.1.10}Motociclismo}{75}{paragraph.8.2.1.10}
+\contentsline {paragraph}{\numberline {8.2.1.11}Rugby}{75}{paragraph.8.2.1.11}
+\contentsline {paragraph}{\numberline {8.2.1.12}Tenis}{75}{paragraph.8.2.1.12}
+\contentsline {paragraph}{\numberline {8.2.1.13}Voleibol}{76}{paragraph.8.2.1.13}
+\contentsline {subsubsection}{\numberline {8.2.2}Palabras secundarias}{77}{subsubsection.8.2.2}
+\contentsline {paragraph}{\numberline {8.2.2.1}Atletismo}{77}{paragraph.8.2.2.1}
+\contentsline {paragraph}{\numberline {8.2.2.2}Baloncesto}{77}{paragraph.8.2.2.2}
+\contentsline {paragraph}{\numberline {8.2.2.3}Balonmano}{77}{paragraph.8.2.2.3}
+\contentsline {paragraph}{\numberline {8.2.2.4}Boxeo}{78}{paragraph.8.2.2.4}
+\contentsline {paragraph}{\numberline {8.2.2.5}Ciclismo}{78}{paragraph.8.2.2.5}
+\contentsline {paragraph}{\numberline {8.2.2.6}F\IeC {\'u}tbol}{78}{paragraph.8.2.2.6}
+\contentsline {paragraph}{\numberline {8.2.2.7}F\IeC {\'u}tbol Americano}{79}{paragraph.8.2.2.7}
+\contentsline {paragraph}{\numberline {8.2.2.8}Golf}{80}{paragraph.8.2.2.8}
+\contentsline {paragraph}{\numberline {8.2.2.9}Judo}{80}{paragraph.8.2.2.9}
+\contentsline {paragraph}{\numberline {8.2.2.10}Motociclismo}{80}{paragraph.8.2.2.10}
+\contentsline {paragraph}{\numberline {8.2.2.11}Rugby}{80}{paragraph.8.2.2.11}
+\contentsline {paragraph}{\numberline {8.2.2.12}Tenis}{81}{paragraph.8.2.2.12}
+\contentsline {paragraph}{\numberline {8.2.2.13}Voleibol}{81}{paragraph.8.2.2.13}
+\contentsline {subsubsection}{\numberline {8.2.3}Palabras excluyentes}{82}{subsubsection.8.2.3}
+\contentsline {paragraph}{\numberline {8.2.3.1}Atletismo}{82}{paragraph.8.2.3.1}
+\contentsline {paragraph}{\numberline {8.2.3.2}Baloncesto}{82}{paragraph.8.2.3.2}
+\contentsline {paragraph}{\numberline {8.2.3.3}Balonmano}{82}{paragraph.8.2.3.3}
+\contentsline {paragraph}{\numberline {8.2.3.4}Boxeo}{82}{paragraph.8.2.3.4}
+\contentsline {paragraph}{\numberline {8.2.3.5}Ciclismo}{82}{paragraph.8.2.3.5}
+\contentsline {paragraph}{\numberline {8.2.3.6}F\IeC {\'u}tbol}{82}{paragraph.8.2.3.6}
+\contentsline {paragraph}{\numberline {8.2.3.7}F\IeC {\'u}tbol Americano}{82}{paragraph.8.2.3.7}
+\contentsline {paragraph}{\numberline {8.2.3.8}Golf}{82}{paragraph.8.2.3.8}
+\contentsline {paragraph}{\numberline {8.2.3.9}Judo}{82}{paragraph.8.2.3.9}
+\contentsline {paragraph}{\numberline {8.2.3.10}Motociclismo}{83}{paragraph.8.2.3.10}
+\contentsline {paragraph}{\numberline {8.2.3.11}Rugby}{83}{paragraph.8.2.3.11}
+\contentsline {paragraph}{\numberline {8.2.3.12}Tenis}{83}{paragraph.8.2.3.12}
+\contentsline {paragraph}{\numberline {8.2.3.13}Voleibol}{83}{paragraph.8.2.3.13}
+\contentsline {subsubsection}{\numberline {8.2.4}Palabras vac\IeC {\'\i }as}{84}{subsubsection.8.2.4}
+\contentsline {subsubsection}{\numberline {8.2.5}Palabras en an\IeC {\'a}lisis del sentimiento}{85}{subsubsection.8.2.5}
+\contentsline {paragraph}{\numberline {8.2.5.1}Alegr\IeC {\'\i }a}{85}{paragraph.8.2.5.1}
+\contentsline {paragraph}{\numberline {8.2.5.2}Amor}{85}{paragraph.8.2.5.2}
+\contentsline {paragraph}{\numberline {8.2.5.3}Enfado}{85}{paragraph.8.2.5.3}
+\contentsline {paragraph}{\numberline {8.2.5.4}Miedo}{85}{paragraph.8.2.5.4}
+\contentsline {paragraph}{\numberline {8.2.5.5}Sorpresa}{85}{paragraph.8.2.5.5}
+\contentsline {paragraph}{\numberline {8.2.5.6}Tristeza}{85}{paragraph.8.2.5.6}

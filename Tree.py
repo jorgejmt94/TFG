@@ -147,7 +147,6 @@ class AVLTree():
         else:
             return
 
-
     def predecessor(self, node):
 
         node = node.left.node
@@ -158,7 +157,6 @@ class AVLTree():
                 else:
                     node = node.right.node
         return node
-
 
     def successor(self, node):
 
@@ -181,7 +179,16 @@ class AVLTree():
         self.update_balances()
         return ((abs(self.balance) < 2) and self.node.left.check_balanced() and self.node.right.check_balanced())
 
+    def insert_array(self, array):
+        for word in array:
+            self.insert(word)
+
+    ''''
+    El algoritmo
+    '''''
     def find_words_in_text(self, text, word_mark):
+        import Utils
+        found_list = []
         text_words = text.split()
         return_value = index_text_word = 0
         empty_words_tree = AVLTree()
@@ -190,26 +197,22 @@ class AVLTree():
             end = 0
             aux_tree = self
             while end == 0:
-
                 if aux_tree.node != None and index_text_word < len(text_words):
                     word_in_tree = aux_tree.node.key.split()
                     #print(word_in_tree) #word we are searching
                     j = 0
-
                     if len(word_in_tree) != 0:
-                        if  word_in_tree[j] == text_words[index_text_word]: # la hemos encontrado chic@s!
-                            #if empty_words_tree.find_word(word_in_tree[j]):
-                                #print('-Palabra eliminada:', word_in_tree[j])
-                                #return_value -= word_punctuation
+                        if  Utils.stem(word_in_tree[j].lower()) == Utils.stem(text_words[index_text_word].lower()): # la hemos encontrado chic@s!
+                            found_list.append(word_in_tree[j])
                             j = ok = end = 1
                             return_value += word_mark
                             while j < len(word_in_tree) and ok == 1:
                                 if (index_text_word + j) < len(text_words):
                                     if False == empty_words_tree.find_word(word_in_tree[j]):
                                         #print('mirando: ---------------', text_words[index_text_word + j],word_in_tree[j], word_in_tree)
-
-                                        if  word_in_tree[j] == text_words[index_text_word+j] :
+                                        if  Utils.stem(word_in_tree[j].lower()) == Utils.stem(text_words[index_text_word+j].lower()) :
                                             #print('+subPalabra encontrada!', word_in_tree[j])
+
                                             return_value += word_mark
                                         else:
                                             return_value -= word_mark
@@ -228,9 +231,11 @@ class AVLTree():
                 else:
                     end = 1
             index_text_word+=1
-        return return_value
+        return return_value, found_list
 
-
+    ''''
+    Encontrar una palabra
+    '''''
     def find_word(self, word_to_find):
         end= 0
         aux_tree = self
@@ -250,6 +255,3 @@ class AVLTree():
         return False
 
 
-    def insert_array(self, array):
-        for word in array:
-            self.insert(word)

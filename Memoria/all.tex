@@ -13,6 +13,17 @@
 \usepackage{macros}
 \usepackage{minted}
 \usepackage{import}
+\usepackage{afterpage}
+\usepackage{cite}
+\usepackage{makeidx}
+\usepackage{pdfpages}
+\graphicspath{ {figures/} }
+\usepackage{etoolbox,refcount}
+\usepackage{multicol}
+
+
+\usepackage[export]{adjustbox}
+
 
 \usepackage{array}
 \usepackage{subfiles}% para organizacion en ficheros
@@ -53,17 +64,8 @@
 \date{Curso académico 2017/18}
 
 \renewcommand
-    \title{Detección de \textit{tweets} fraudulentos en el ámbito de los deportes}
+    \title{Sports Fake Detector: Herramienta de análisis para la detección de \textit{tweets} fraudulentos en el ámbito de los deportes}    
 
-
-\setminted[python]{
-    breaklines, 
-    frame=single,
-    mathescape,
-    linenos,
-    numbersep=-4mm,
-    %bgcolor=WhiteSmoke
-}
 
 
 
@@ -74,22 +76,19 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{\includegraphics[width=3cm]{logo}}
-\rhead{\title\ }
+\rhead{Sports Fake Detector }
 \rfoot{Página \thepage}
 
 
 %------------------------------------
 %               INICIO
 %------------------------------------
-
 \begin{document}
-
 
 %-------------------------------------
 %               PORTADA
 %-------------------------------------
-%\include{aux/portada.tex}
-
+\includepdf[page=-]{aux/PortadaSalle.pdf} 
 
 \makeatletter
     \begin{titlepage}
@@ -112,16 +111,41 @@
 %------------------------------------
 %               PreIndice
 %------------------------------------
-\pagenumbering{arabic}
-\newpage
-\section*{Palabras clave}
-Data Science, Tweeter, Trust Tweets, Text Classification, Sentiment Analysis.
 
+
+\newpage{\ } 
+\thispagestyle{empty} 
+
+
+\newpage
+\pagenumbering{arabic}
+\section*{Palabras clave}
+Data Science, Twitter, Trust Tweets, Text Classification, Sentiment Analysis, Fake news, Trolls.
 \section*{Abstract}
-{\color{red} Para el final}
+Este proyecto analizará los perfiles del usuario cuyo tweet se este estudiando su veracidad  y para ello se investigará sobre que temas escribe, de que forma los escribe, a quien hace menciones y retweets, la información de su perfil como si su cuenta es verificada y se comparará con los últimos tweets publicados en Twitter sobre esa temática para dar una aproximación de la veracidad del tweet a tratar.\\
+{\color{red} AMPLIAR}
 \section*{Resumen}
 La población cada vez es más exigente, en el mundo del periodismo esto se resume en inmediatez a la hora  de publicar una noticia. Para ello los periodistas recurren cada vez más a las redes sociales como fuente de información y con la exigencia de ser los primeros en publicar los sucesos, no siempre contrastan la información con fuentes fidedignas. Si lo combinamos con que gran parte de la información que está en las redes sociales suele ser falsa hace que un periodista publique una noticia falsa y provocó que la sociedad se crea una mentira por el hecho de haberlo visto en televisión o leído en algún medio de información.
 Este proyecto pretende dar caza a mentiras en las redes sociales pero acortándolo al mundo de los deportes.
+\thispagestyle{empty} 
+
+
+\newpage{\ } 
+\thispagestyle{empty} 
+
+
+\newpage
+\begin{center}
+	\textit{A mis padres Herminia y Jorge y a mis abuelos Herminia y Benedicto por estar siempre a mi lado.}\\
+	\textit{A Elisabet Golobardes por haberme dado esta oportunidad y haberme escuchado siempre.}
+\end{center}
+\thispagestyle{empty} 
+
+
+\newpage{\ } 
+\thispagestyle{empty} 
+
+
 
 
 
@@ -129,49 +153,75 @@ Este proyecto pretende dar caza a mentiras en las redes sociales pero acortándo
 %               ÍNDICE
 %------------------------------------
 \newpage
-%\thispagestyle{nofooter}
 \tableofcontents
-\newpage
 
+%\newpage{\ } 
+%\thispagestyle{empty} 
+
+\newpage
+\listoffigures
+
+\newpage{\ } 
+\thispagestyle{empty} 
+
+
+\newpage
+\section*{Acrónimos}
+\begin{flushleft}
+	SFD: Sports Fake Detector.\\
+	SVM: Support Vector Machine.\\
+	AVL Tree: Adelson-Velskii y Landis Tree.\\
+	XGBoost: Xtreme Gradient Boosting Model.\\
+	PLN: Procesamiento de Lenguajes Naturales \\
+	GLM: Modelos Lineales Generalizados\\
+	NLTK: Natural Language ToolKit.\\
+	RFM: Random Forest Model.\\
+	OS: Operative System.\\ 
+	DB: Data Base.\\
+	FC: Fútbol Club.\\
+	NB: Naive Bayes.\\
+
+\end{flushleft}
+\thispagestyle{empty} 
+
+
+\newpage{\ } 
+\thispagestyle{empty} 
 
 %---------------------------------------
 %               CONTENIDO
 %---------------------------------------
 
-
-%    \begin{itemize}
-%        \item paper 1
-%        \item paper 2
-%    \end{itemize}
-
-
+\newpage
 \subfile{apartados/1.Introduccion}
+
 \newpage
 \subfile{apartados/2.TrabajoRelacionado}
+
 \newpage
 \subfile{apartados/3.Proyecto}
+
 \newpage
 \subfile{apartados/4.Experimentacion}
+
 \newpage
 \subfile{apartados/5.Costes}
+
 \newpage
 \subfile{apartados/6.Conclusiones}
-\newpage
-\subfile{apartados/7.LineasDeFuturo}
-{\color{red} 
-	Comentar:\\
-	- Continuar TFM apuestas\\
-	- Sugerencias de a que personas seguir\\
-	- Dejar de seguir a gente 'agresiva'\\
-	- Facilidad en recopilación de información \\
-	- Añadir + temas no solo deportes\\
-	- Idioma\\
-}
+
+%\newpage
+%\subfile{apartados/7.LineasDeFuturo}
+
 \newpage
 \subfile{apartados/8.Bibliografia}
+
 \newpage
 \subfile{apartados/9.Anexos}
 
+
+\newpage{\ } 
+\thispagestyle{empty} 
 
 %-----------------------------------
 %               FINAL

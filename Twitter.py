@@ -16,8 +16,16 @@ def twitter_setup():
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
     # Return API with authentication:
-    api = tweepy.API(auth)
+    api = tweepy.API(auth, wait_on_rate_limit=True)
     return api
+
+def get_twees_by_hashtag(word, n_tweets, year, show):
+    api = twitter_setup()
+    word='#'+word
+    tweets = api.search(q=word, since=str(year)+'-06-14',count=n_tweets)
+    if show == True:
+        print('Ya tenemos tweets sobre:', word)
+    return tweets
 
 
 def get_last_weets(user_name, n_tweets):
@@ -25,7 +33,7 @@ def get_last_weets(user_name, n_tweets):
     extractor = twitter_setup()
     
     # create a tweet list as follows:
-    twts = extractor.user_timeline(screen_name=user_name, count=n_tweets)
+    twts = extractor.user_timeline(screen_name=user_name, count=n_tweets)#, tweet_mode='extended')
     tweets=[]
     for tweet in twts:
         #tweet = clean_tweet(tweet)
@@ -42,6 +50,32 @@ def clean_tweet(tweet):
     tweet.text = tweet.text.replace(";", "")
     tweet.text = tweet.text.replace("...", "")
     tweet.text = tweet.text.replace("\"", "")
+    tweet.text = tweet.text.replace("#", "")
+    return tweet
+
+def clean_tweet_2(tweet):
+    #quitar urls
+    tweet.text = re.sub(r"http\S+", "", tweet.text).lower()
+    #quitar puntos
+    tweet.text = tweet.text.replace(".","")
+    tweet.text = tweet.text.replace(",", "")
+    tweet.text = tweet.text.replace(":", "")
+    tweet.text = tweet.text.replace(";", "")
+    tweet.text = tweet.text.replace("...", "")
+    tweet.text = tweet.text.replace("\"", "")
+    tweet.text = tweet.text.replace("#Futbol", "")
+    tweet.text = tweet.text.replace("#Baloncesto", "")
+    tweet.text = tweet.text.replace("#Golf", "")
+    tweet.text = tweet.text.replace("#Boxeo", "")
+    tweet.text = tweet.text.replace("#Judo", "")
+    tweet.text = tweet.text.replace("#Balonmano", "")
+    tweet.text = tweet.text.replace("#Tenis", "")
+    tweet.text = tweet.text.replace("#Ciclismo", "")
+    tweet.text = tweet.text.replace("#Atletismo", "")
+    tweet.text = tweet.text.replace("#Rugby", "")
+    tweet.text = tweet.text.replace("#Motociclismo", "")
+    tweet.text = tweet.text.replace("#Futbol americano", "")
+    tweet.text = tweet.text.replace("#", "")
     return tweet
 
 def get_user_data(user_name, n_tweets):
