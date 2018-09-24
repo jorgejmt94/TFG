@@ -1,0 +1,51 @@
+
+Download package from:
+    $ https://www.mongodb.com/download-center#production
+In the same directory execute the commands via Terminal:
+    $ tar -zxvf mongodb-osx-ssl-x86_64-4.0.2.tgz
+    $ export PATH=<mongodb-install-directory>/bin:$PATH
+Or via Brew execut commands on Terminal:
+    $ brew update
+    $ brew install mongodb
+    $ brew install mongodb --devel
+
+
+
+Now you can run mongoDB by executing command:
+    $ mongod
+On the terminal you can:
+# CREATE the database
+    use train
+# Be sure you are in the database
+    db
+# CREATE the collections
+    db.createCollection('sports')
+# Be sure you create it
+    show collections
+
+
+## Functionalites via python ##
+#Connect to DB #
+def connectDB(name_db, name_collection):
+    client = MongoClient('localhost', 27017)
+    return client[name_db], client[name_db][name_collection]
+
+# INSERT in a collection #
+def INSERT_json_toDB(db_name, cl_name, data_json):
+
+    db, cl = connectDB(db_name, cl_name)
+    result = cl.insert_one(data_json)
+
+# GET collections #
+def GET_dictionary_from_DB():
+    db, cl = connectDB('train', 'dictionary')
+    cursor = cl.find({})
+    data = []
+    for document in cursor:
+        data.append(Utils.Dictionary(
+            document['type'],
+            document['keyWords'],
+            document['secondaryWords'],
+            document['excludingWords']
+        ))
+    return data

@@ -1,5 +1,4 @@
 #my files
-import DB, Utils, Algorithms, DataFromInternet, Twitter
 
 #text_to_classify = input('Enter the text to classify: ') #input mode
 
@@ -248,6 +247,13 @@ import DB, Utils, Algorithms, DataFromInternet, Twitter
 # print('Output stemmed and without empty words:', Utils.delete_empty_words(stemmed))
 ##
 
+''' ##########################################################
+    ###        Bot,Observer or spammer example             ###
+    ##########################################################'''
+# import Twitter,Algorithms
+# user_name = 'Mandeep20016'
+# tweets = Twitter.get_last_weets(user_name, 5)
+# Algorithms.is_bot_spammer_observer(tweets, user_name, debug=0)
 
 
 

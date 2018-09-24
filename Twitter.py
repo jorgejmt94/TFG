@@ -22,18 +22,31 @@ def twitter_setup():
 def get_twees_by_hashtag(word, n_tweets, year, show):
     api = twitter_setup()
     word='#'+word
-    tweets = api.search(q=word, since=str(year)+'-06-14',count=n_tweets)
-    if show == True:
+    import datetime
+    x = datetime.datetime.now()
+    date = str(x.year) + '-' + str(x.month) + '-' + str(x.day)
+    tweets = api.search(q=word, since=str(year)+ '-' + str(x.month) + '-' + str(x.day),count=n_tweets)
+    if show:
         print('Ya tenemos tweets sobre:', word)
     return tweets
 
+def get_last_100_twees_by_hashtag(word, show):
+    import datetime
+    x = datetime.datetime.now()
+    date = str(x.year) + '-' + str(x.month) + '-' + str(x.day)
+    api = twitter_setup()
+    word='#'+word
+    tweets = api.search(q=word, since=date,count=1000)
+    if show:
+        print('Ya tenemos tweets sobre:', word)
+    return tweets
 
 def get_last_weets(user_name, n_tweets):
     # create an extractor object:
     extractor = twitter_setup()
     
     # create a tweet list as follows:
-    twts = extractor.user_timeline(screen_name=user_name, count=n_tweets)#, tweet_mode='extended')
+    twts = extractor.user_timeline(screen_name=user_name, count=n_tweets)   #, tweet_mode='extended')
     tweets=[]
     for tweet in twts:
         #tweet = clean_tweet(tweet)
@@ -78,14 +91,13 @@ def clean_tweet_2(tweet):
     tweet.text = tweet.text.replace("#", "")
     return tweet
 
-def get_user_data(user_name, n_tweets):
+def get_user_data(user_name):
     import Utils
     #estaria bien saber si es un diario, un periodista, un deportista, un aficionado, mirar si es rt
     # create an extractor object:
     extractor = twitter_setup()
     user = extractor.get_user(user_name)
-    return Utils.User(user.description, user.verified,user.followers_count)
-
+    return Utils.User(user_name, user.description, user.verified, user.followers_count, user.friends_count, user.statuses_count)
 
 def get_tweet_data(tweet):
     import Utils

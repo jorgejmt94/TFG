@@ -186,13 +186,12 @@ class AVLTree():
     ''''
     El algoritmo
     '''''
-    def find_words_in_text(self, text, word_mark):
+    def find_words_in_text(self, text, word_mark, empty_words_tree):
         import Utils
         found_list = []
         text_words = text.split()
         return_value = index_text_word = 0
-        empty_words_tree = AVLTree()
-        empty_words_tree.insert_array(DB.GET_empty_words_from_DB())
+
         while index_text_word < len(text_words):
             end = 0
             aux_tree = self

@@ -7,16 +7,68 @@
 % Ontologias
 % Diagram de flujo
 
+\subsection{Manual MongoDB}
+	Para instalar MongoDB hay dos maneras:\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=10cm, width=10cm]{imgs/MongoInstall.png}
+		\caption{Instalar MongoDB.}
+	\end{figure}
+	Se puede ejecutar haciendo las siguientes comandas:\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=9cm, width=9cm]{imgs/MongoRun.png}
+		\caption{Ejecutar MongoDB en nuestro ordenador.}
+	\end{figure}
+\newpage
+	En la siguiente figura se pueden observar las principales funciones de Connect, Get e Insert.\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=11cm, width=11cm]{imgs/MongoFunc.png}
+		\caption{Funcionalidades MongoDB.}
+	\end{figure}
 
-	\subsection{Ontología de los deportes}
-		La siguiente figura muestra una ontología para definir y separarlos deportes \cite{Ontologia}.
-		\begin{figure}[H]
-			\centering
-			\includegraphics[height=17cm, width=17cm]{imgs/SportsOntology.png}
-			\caption{Ontología de los deportes.}
-		\end{figure}
+\newpage
+\subsection{Manual Tweepy}
+	Para la conexión con Twitter, Tweepy necesita pedir las credenciales en: \newline \url{https://apps.twitter.com/}.\\
+	
+	Una vez se obtienen las credenciales se tendrán las siguientes '\textit{keys}': '\textit{CONSUMER\_KEY}', '\textit{CONSUMER\_SECRET}', '\textit{ACCESS\_TOKEN}' Y '\textit{ACCESS\_SECRET}' que se necesitan para hacer la conexión con la API de Twitter.\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=10cm, width=10cm]{imgs/TweepySetUp.png}
+		\caption{Conexión con Twitter desde Python.}
+	\end{figure}
+	Una vez obtenida la conexión se pueden hacer diferentes funciones como obtener los últimos '\textit{n}' tweets por hashtag:\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=10cm, width=10cm]{imgs/TweepyHashtag.png}
+		\caption{Obtener tweets por Hashtag.}
+	\end{figure}
+\newpage
+	Pedir los últimos '\textit{n}' tweets de un usuario:\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=11cm, width=11cm]{imgs/TweepyLast.png}
+		\caption{Obtener últimos \textit{X} tweets.}
+	\end{figure}
+	Hacef la llamada para obtener la información de un usuario:\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=12cm, width=12cm]{imgs/TweepyUser.png}
+		\caption{Obtener información del usuario.}
+	\end{figure}
 
-	\newpage
+
+\newpage
+\subsection{Ontología de los deportes}
+	La siguiente figura muestra una ontología para definir y separarlos deportes \cite{Ontologia}.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=17cm, width=17cm]{imgs/SportsOntology.png}
+		\caption{Ontología de los deportes.}
+	\end{figure}
+
+\newpage
 \subsection{Diccionarios}
 \subsubsection{Palabras clave}
     \paragraph{Atletismo}
@@ -119,15 +171,16 @@
 \newpage
 \subsubsection{Palabras en análisis del sentimiento}
     \paragraph{Alegría}
-    Gozo, contento, deleite, diversión, placer, gratificación, satisfacción, euforia, éxtasis, emoción, jovialidad, felicidad, euforia, contento, triunfo, fascinación, dicha, alegría, júbilo, entusiasmo, estimulo, impaciencia, alivio, alborozo, deleite, jolgorio, satisfacción, esperanza, regocijo, humor, gozo, brío, agradecimiento, excitación, orgullo, embeleso, emocionado, sensual, energético, alegre, creativo, esperanzado, atrevido, estimulante, divertido, optimista, agrado, aleluya.
+    Gozo, contento, deleite, diversión, placer, gratificación, satisfacción, euforia, éxtasis, emoción, jovialidad, felicidad, euforia, contento, triunfo, fascinación, dicha, alegría, júbilo, entusiasmo, estimulo, impaciencia, alivio, alborozo, deleite, jolgorio, satisfacción, esperanza, regocijo, humor, brío, agradecimiento, excitación, orgullo, embeleso, emocionado, sensual, energético, alegre, creativo, esperanzado, atrevido, estimulante, divertido, optimista, agrado, aleluya.
     \paragraph{Amor}
-    Adoración. atracción. sentimentalismo. añoranza. afecto. cuidado. deseo. amor. ternura. pasión. cariño. compasión. capricho. simpatía.
+    Adoración. atracción. sentimentalismo. añoranza. afecto. cuidado. deseo. amor. ternura. pasión. cariño. compasión. capricho. simpatía, adonis, adoración, apego, ardor, arrebato, celos, compromiso, coqueteo, cortejar, cortesía, desear, encandilar, excitación, fervor, flechazo, galán, frenesí, gustar, idolatrar, idilio, ligar, noviazgo, predilección.
     \paragraph{Enfado}
-    Rabia, enojo, resentimiento, furia, exasperación, indignación, animosidad, irratibilidad, irritación, hostilidad, odio, violencia, malhumor, amargura, venganza, desprecio, exasperación, furia, odio, desagrado, envidia, inquietud, frustración, cólera, aversión, resentimiento, fastidio, enfado, hostilidad, menosprecio, repugnancia, aspereza, ira, violencia, rencor, distante, sarcástico, frustrado, celoso, escéptico, herir, hostil, egoísta, odioso.
+    Rabia, enojo, resentimiento, furia, exasperación, indignación, animosidad, irritabilidad, irritación, hostilidad, odio, violencia, malhumor, amargura, venganza, desprecio, exasperación, furia, odio, desagrado, envidia, inquietud, frustración, cólera, aversión, resentimiento, fastidio, enfado, hostilidad, menosprecio, repugnancia, aspereza, ira, violencia, rencor, distante, sarcástico, frustrado, celoso, escéptico, herir, hostil, egoísta, odioso.
     \paragraph{Miedo}
-    Angustia, alarma, aprensión, fobia, pánico, preocupación, desasosiego, incertidumbre, ansiedad, inquietud, terror, nerviosismo, aficcón, shock, pánico, tensión, pavor, miedo, histerismo, desasosiego, susto, humillación, preocupación, horror, ansiedad.
+    Angustia, alarma, aprensión, fobia, pánico, preocupación, desasosiego, incertidumbre, ansiedad, inquietud, terror, nerviosismo, aflicción, shock, pánico, tensión, pavor, miedo, histerismo, desasosiego, susto, humillación, preocupación, horror, ansiedad, horrorizado, humillado, preocupado, nervioso, inquietado, incierto, angustiado, aterrado.
+    \newpage
     \paragraph{Sorpresa}
-    Asombro, sorpresa, pasmo, confuso, desconcertado, chasco, conmoción, estupefacción, estupor, exclamación, extrañeza, impresión, pasmo, sobresalto, susto.
+    Asombro, sorpresa, pasmo, confuso, desconcertado, chasco, conmoción, estupefacción, estupor, exclamación, extrañeza, impresión, pasmo, sobresalto, susto, asombrado, confusión, confundido, conmocionado, estupefacto, impresionado, pasmado, consternación, desorientado, desconcierto, trauma, embelesamiento, anomalía, singularidad, peculiaridad, impacto.
     \paragraph{Tristeza}
     Auto compasión, soledad, desaliento, melancolía, depresión, aflicción, pena, desconsuelo, pesimismo, desesperación, tormento, pesimismo, pesar, decepción, remordimiento, rechazo, bochorno, sufrimiento, congoja, disgusto, alineación, humillación, depresión, suplicio, culpa, aislamiento, derrota, insulto, tristeza, melancolía, vergüenza, abandono, desánimo, lástima, desesperación, infelicidad, dolor, desaliento, arrepentimiento, soledad, inseguridad, condolencia, pesadez, arrepentido, estúpido, inferior, aislado, apático, soñoliento, gulty, avergonzado, Deprimido, solitario, aburrido, cansado.
 

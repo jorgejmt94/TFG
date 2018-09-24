@@ -3,7 +3,9 @@ import DB, Tree
 MIN_TYPES = 0
 MAX_TYPES = 13 #allways + 1
 
-
+''''
+GET TYPES
+'''''
 def get_data_id(data_name):
     data ={ 'Futbol':       0,
               'Baloncesto': 1,
@@ -77,6 +79,9 @@ def get_sentiment_name(data_id):
     return data[data_id]
 
 
+''''
+CLASS DEFINICTIONS
+'''''
 class WikiData:
     def __init__(self, text, word_list, top_words, top_words_percentages, type_name):
         self.text = text
@@ -91,7 +96,6 @@ class WikiData:
         for word in self.top_words:
             text += word + ' '
         return text
-
 
 class Dictionary:
     def __init__(self, type, key_words, secondary_words, excluding_Words):
@@ -137,12 +141,18 @@ class Sentiment:
         self.words_list = words_list
 
 class User:
-    def __init__(self, description, verified, followers_count):
+    def __init__(self, user_name, description, verified, followers_count, friends_count, statuses_count):
+        self.user_name = user_name
         self.description = description
         self.verified = verified
         self.followers_count = followers_count
+        self.friends_count = friends_count
+        self.statuses_count = statuses_count
 
 
+''''
+UTILS FUNCTIONS
+'''''
 def get_empty_words_from_file():
     # Palabras que no se tendran en cuenta:
     fichero = open ('./data/palabras_vacias.txt',"r", encoding="utf-8")
@@ -170,6 +180,17 @@ def delete_empty_words(word_list):
 
     return  word_list
 
+def delete_empty_words_SA(word_list):
+    empty_words = DB.GET_empty_words2_from_DB()
+    # Remove empty words
+    for i in word_list[:]:
+        if len(i) < 2:
+            word_list.remove(i)
+        else:
+            if i in empty_words:
+                word_list.remove(i)
+
+    return  word_list
 
 # funcion de extraccion de raices lexicales
 def stem(word):
@@ -198,6 +219,11 @@ def translate(text, lang_out):
     from textblob import TextBlob
     transltator = TextBlob(text)
     lang_in = transltator.detect_language()
-    return str(transltator.translate(to=lang_out))
+    try:
+        text = str(transltator.translate(to=lang_out))
+    except:
+        import re
+        text = ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", text).split())
+    return text
 
 

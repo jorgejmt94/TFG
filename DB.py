@@ -37,12 +37,40 @@ def connectDB(name_db, name_collection):
 def GET_empty_words_from_DB():
 
     db, cl = connectDB('train', 'specialWords')
-    cursor = cl.find({})
+
+
+    cursor = cl.find({'type': 'emptyText'})
     data = []
     for document in cursor:
         data = document["emptyWords"]
     return data
 
+def GET_empty_words_SA_from_DB():
+
+    db, cl = connectDB('train', 'specialWords')
+    cursor = cl.find({'type': 'emptySA'})
+    data = []
+    for document in cursor:
+        data = document["emptyWordsSA"]
+    return data
+
+def GET_plus_words_from_DB():
+
+    db, cl = connectDB('train', 'specialWords')
+    cursor = cl.find({'type': 'plus'})
+    data = []
+    for document in cursor:
+        data = document["words"]
+    return data
+
+def GET_less_words_from_DB():
+
+    db, cl = connectDB('train', 'specialWords')
+    cursor = cl.find({'type': 'less'})
+    data = []
+    for document in cursor:
+        data = document["words"]
+    return data
 
 ''' #################################################
     # Get all data of wikipedia from MONGO DB       #

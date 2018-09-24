@@ -228,8 +228,12 @@
 	Otro problema que se presenta es la proximidad temporal de los tweets. Esto se refiere a que cogemos los últimos tweets que se han escrito en Twitter y los usuarios normalmente comentan las últimas novedades y lo sucedido en las últimas horas y esto es una ventaja dado que usualmente compararemos tweets parecidos al del usuario, pero también puede pasar que un usuario hablé sobre lo que paso ayer u otro día anterior y al hacer la búsqueda con estos algoritmos ninguno se parezca y lo clasifiquemos de forma errónea.\\
 	
 	Para solucionar estos problemas más las restricciones de tiempos de los algoritmos se decidió utilizar Naive Bayes con un dataset de 700 tweets donde se consigue un accuracy del 0,4-0.5 y es el más rápido en cuanto a tiempo se refiere gracias a la sencillez del algoritmo. Con los resultados obtenidos se hace una media de que deporte puede tratarse entre los dos algoritmos y se acaba de afinar con un tercer algoritmo el cual es propio y se ejecuta mediante un diccionario también propio. \\
+	
+	{\color{red} 
+		TODO:    MATRIZ DE CONFUSION NAIVE BAYES CON 700
+	}
 	\newpage
-	Este diccionario de cada deporte esta almacenado en un árbol AVL Tree el cual es una estructura de datos ordenada y los costes temporales de búsqueda son O (log(n)). Otra ventaja que tiene este árbol es el poder clasificar por palabras compuestas, es decir que por ejemplo si buscas la falta de baloncesto 'campo atrás', gracias a la búsqueda que se ha implementado en este arbol, se encontrará.\\
+	Este diccionario de cada deporte esta almacenado en un árbol AVL Tree el cual es una estructura de datos ordenada y los costes temporales de búsqueda son O (log(n)). Otra ventaja que tiene este árbol es el poder clasificar por palabras compuestas, es decir que por ejemplo si buscas la falta de baloncesto 'campo atrás', gracias a la búsqueda que se ha implementado en este árbol, se encontrará. En la siguiente figura se puede observar que se tarda 1,32 segundos en tratar sin el árbol y 0,33 analizando con el árbol AVL implementado.\\
 	
 	\begin{figure}[H]
 		\centering
@@ -256,28 +260,189 @@
 	 \begin{figure}[H]
 	 	\centering
 	 	\includegraphics[height=14cm, width=13cm]{imgs/errorStem.png}
-	 	\caption{Ejemplos de error en el uso de un \textit{stemmer}.}
+	 	\caption{Ejemplos de error en el uso de un \textit{stemmer} en clasificación de texto.}
 	 \end{figure}
 	
-	Para concluir, recordar que se usan los algoritmos NaiveBayes, Linear Regression y el diccionario propio y no solo que estos algoritmos se aplican no solo a un tweet sino, a todos últimos 20 tweets del usuario y los 10 de los perfiles retweeteados si los hay. Una vez hecho esto se envía a la fase tres los resultados y está queda a la espera de tener los resultados de la fase dos.
+	Para concluir, recordar que se usan los algoritmos NaiveBayes junto al diccionario propio y no solo que estos algoritmos se aplican no solo a un tweet sino, a todos últimos 20 tweets del usuario y los 10 de los perfiles retweeteados si los hay. Una vez hecho esto se envía a la fase tres los resultados y está queda a la espera de tener los resultados de la fase dos.
 	
 	
 \newpage
 \subsection{Fase 2 - Análisis del sentimiento}
-    El análisis de sentimiento de textos en las redes sociales\footnote{Adopta diferentes nombres en inglés como sentiment analysis, opinion mining, brand monitoring, buzz monitoring, online anthropology, market influence analytics, conversation mining, online consumer intelligence, user generated content} es el proceso que determina el tono emocional que hay detrás de unas palabras determinadas, si una frase contiene una opinión positiva o negativa sobre un producto, marca, institución, organización, empresa, evento o persona.\\
+    El análisis de sentimiento de textos en las redes sociales es el proceso que determina el tono emocional que hay detrás de unas palabras determinadas, si una frase contiene una opinión positiva o negativa sobre un producto, marca, institución, organización, empresa, evento o persona.\\
 
     Los sentimientos se clasifican en positivos, negativos o neutros. Sin embargo, el lenguaje natural es complejo y ambiguo por lo que enseñar a una máquina a que analice los diferentes matices gramaticales, variaciones culturales, jergas, expresiones coloquiales o a distinguir faltas de ortografía, la sinonimia o la polisemia dentro de un contexto que determina el tono de la conversación es francamente difícil. Así, por ejemplo, ante un comentario sarcástico, la máquina tomaría la frase como algo positivo en vez de algo negativo o expresiones como “LOL, OMG, estuvo geeeeeeeniaaaaaaaal” son dificilísimas de procesar.\\
     
-	{\color{red} 
-		TODO: Faltan los resultados, COMENTAR QUE SI EL STEMMER FUNCIONASE MEJOR EN ESPAÑOL MEJORES RESULTADOS
-	}
+  Como los algoritmos que usaran en esta fase se aplicarán en textos (o tweets) escritos en castellano, los resultados son bastante pobres dado que no se tiene un \textit{dataset} tan amplio como en la anterior fase. Además las posibilidades de decir un adjetivo que describa un sentimiento son mucho mayores dado qu en un deporte tienes palabras clave como 'jab' o 'lona' en boxeo, 'gol' y 'fuera de juego' en fútbol, etc. En cambio en los sentimientos una palabra como por ejemplo la palabra 'amor' se puede dar con diferentes variantes como 'amo', 'amada', 'amor', 'amante', etc. Por ese motivo se ha decidido hacer uso de un \textit{stemmer} para encontrar la raíz de las palabras pero, como pasaba en la fase anterior, encontrar la raíz de una palabra en castellano es mucho más difícil y ninguno funciona del todo bien aunque ayudan en algunos casos como en no diferenciar masculino y femenino.\\
+    
+    \begin{figure}[H]
+    	\centering
+    	\includegraphics[height=5cm, width=16cm]{imgs/AmorStemmed.png}
+    	\caption{Ejemplos de error en el uso de un \textit{stemmer} con derivaciones de la palabra amor.}
+    \end{figure}
+    
+    \newpage
+    Esta fase servirá al proyecto para acabar de afinar si es o no mentira y para detectar a usuarios agresivos, envidiosos o enfadados. Primero se aplicarán dos librerías, VADER Sentiment y TextBlob, que dan tres resultados posibles sobre si la frase es: positiva, neutral o negativa. Se asignara un valor de -1, 0 y 1 respectivamente a cada una de las frases analizadas. Si no da el mismo resultado con las dos librerías se cogerá el valor medio entre los dos resultados, es decir si uno devuelve como resultado neutral y el otro negativo se contará como 0,5 y si uno devuelve positivo y el otro negativo se contabilizará con 0.\\
+    
+    Una vez se haya asignado ese valor se analizará mediante el diccionario propio que detectará si el tweet es sobre alegría, amor, enfado, miedo, sorpresa u otro donde se asignan los valores -1, -1, 2, 1, 0 y 0. Una vez asignados los valores, si el valor es negativo o cero significará que no es un tweet negativo y, por lo contrario, si es positivo significará que el texto es agresivo o de enfado. En estos algoritmos a diferencia de los anteriores se eliminaran unicamente los determinantes para hacer más rápida la clasificación sin modificar las palabras que podrían ser clave. Esto se hace porque cada palabra encontrada en uno de los diccionarios si, se sumará con un 1, en ese diccionario pero si se encuentra algún adverbio de cantidad como 'mucho' o 'muy' se sumará con un 2 y si son adverbios como 'poco' o 'algo' se sumará unicamente 0,5.\\
+    
+     El método del diccionario es el mismo algoritmo que en la fase anterior, lo único que cambia son los \textit{datasets} que se guardaran en el árbol ya que se tratará de un juego de datos con palabras relacionadas a los sentimientos y no a los deportes como en la primera fase.\\
+
+    A continuación podemos observar unos ejemplos de la aplicación del algoritmo:\\
+    
+    \begin{figure}[H]
+    	\centering
+    	\includegraphics[height=19cm, width=15cm]{imgs/ExamplesSA.png}
+    	\caption{Resultados obtenidos en clasificación de sentimientos.}
+    \end{figure}
+
+	En la figura anterior se puede observar como el algoritmo acierta en los dos primeros textos diciendo que son de gente furiosa.  También acierta en el siguiente que es positivo pero, falla en los dos últimos dado que el penúltimo es algo malo y lo detecta como neutral y el ultimo es neutral de sorpresa y lo detecta como de furia.
 \newpage
-\subsection{Fase 3 -}
-	{\color{red} 
-		TODO: obtener twits sobre la tematica que se ha descubierto que trata el tweet
-	}
+\subsection{Fase 3 - Resultado del análisis}
+
+	Está última fase es la que toma todas las decisiones finales. En ella se acabara de decidir si es un \textit{bot} que hace \textit{SPAM} en su muro, un usuario agresivo o si el tweet se trata de una mentira o \textit{fake new}. Todo esto se decide mediante a los datos que nos proporcionan las fases anteriores, lo único que hay que hacer es tratar esa información de manera correcta y cuidadosa. En concreto nos llega información del usuario de Twitter, el tema relacionado y el sentimiento del tweet a analizar y sus últimos tweets así como el texto original de ellos.\\
+	
+	Para hacer este análisis más sencillo para el usuario se ha decidido hacer un menú con seis opciones según que quieres analizar en ese momento.\\
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=13cm, width=11cm]{imgs/MainMenu.png}
+		\caption{Menú principal del programa.}
+	\end{figure}
+	
+	En la primera opción se pretende saber si ese tweet es un \textit{fake} y por lo tanto es un \textit{liar troll}. Para ello se tienen en cuenta diferentes variables como sobre que trata ese tweet y si es sobre ese tema el que escribe el usuario. También se mira si el tweet introducido tiene alguna similitud con los últimos mil tweets escritos sobre ese tema por los usuarios de Twitter, sobre esto hay que comentar que solo se detectaran fakes de últimas noticias. Por último, se averigua si ese perfil se trata de un usuario verificado o no. La formula quedaria como: is\_fake =  0,15*A + 0,25*B + 0,2*C + 0,4*D. Donde:
+	\begin{enumerate}
+		\item A = 1 si el tweet trata sobre los temas que normalmente escribe ese usuario sino A = 0.
+		\item B = 1 si la cuenta es verificada sino B = 0.
+		\item C = 1 si el usuario se trata de un \textit{spammer}, \textit{bot} o \textit{observer} sino C = 0..
+		\item D = 1 si existen tweets parecidos entre los últimos 1000 sino A = D.
+	\end{enumerate}
+	Finalmente si con la formula anterior se obtiene un resultado mayor o igual 0,6 se dirá que es una mentira.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=11cm, width=11cm]{imgs/ExampleTrueTweetNV.png}
+		\caption{Ejemplo de un usuario no verificado que publica una verdad.}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=11cm, width=11cm]{imgs/ExampleTrueTweetV.png}
+		\caption{Ejemplo de un usuario verificado que publica una verdad.}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=11cm, width=11cm]{imgs/ExampleTrueTweetV.png}
+		\caption{Ejemplo de un usuario verificado que publica una verdad.}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=11cm, width=11cm]{imgs/ExamplenOpinonV2.png}
+		\caption{Ejemplo de un usuario verificado que publica un tweet que no es verdad pero hay más gente opinando igual.}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=9cm, width=9cm]{imgs/ExampleOpinionV.png}
+		\caption{Ejemplo de un usuario verificado que publica una opinion.}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=9cm, width=9cm]{imgs/ExampleLiar.png}
+		\caption{Ejemplo de un usuario no verificado que publica una opinion.}
+	\end{figure}
+		
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=8cm, width=8cm]{imgs/ExampleNoTema.png}
+		\caption{Ejemplo de tweet demasiado corto que no se encuentra sobre que tema trata.}
+	\end{figure}
+
+
+	Para encontrar los usuarios que sean \textbf{\textit{hater troll}}, lo que se hace es analizar los últimos 10 tweets del usuario con la fase 2, si más de la mitad de los tweets que ha escrito son clasificados con un sentimiento de 'enfado'  se dirá que ese usuario podría ser un \textit{hater troll}.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=15cm, width=15cm]{imgs/ExampleHater.png}
+		\caption{Análisis de un usuario considerado \textit{hater troll}.}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=15cm, width=16cm]{imgs/ExampleHaterJPedrerol.png}
+		\caption{Análisis de si el periodista Josep Pedrerol es o no un \textit{hater troll}.}
+	\end{figure}
+
+	Si escogemos la opción 3 se estudiara un usuario que puede ser \textbf{bot troll}, \textbf{observer troll} o \textbf{spammer troll}. Para hacer este análisis unicamente se pedirá al usuario que escriba el nombre del perfil a analizar.\\
+	
+	En cuanto a un usuario \textit{bot troll} o un \textit{observer troll} no los distinguimos entre ellos y se clasifican como aquellos usuarios que tengan menos de un cuarto de seguidores respecto a los que ellos siguen y también no tiene tweets publicados (tendrá todos los papeles para se un usuario espía o \textit{observer troll}) o bien los tweets que ha publicado son clasificados como SPAM (se parecería más a un \textit{bot troll}). Un ejemplo sería el usuario '@Mandeep20016':
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=13cm, width=13cm]{imgs/ExampleBotUserTwitter.png}
+		\caption{Bot o observer troll.}
+	\end{figure}
+	Por lo tanto si escogemos la tercera opción y escogemos analizar el usuario anterior obtendremos:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=15cm, width=16cm]{imgs/ExampleBotDetected.png}
+		\caption{Bot or observer troll detectrado por trolls detector.}
+	\end{figure}
+		Un perfil clasificado como \textit{spammer troll} será aquel usuario que sus últimos 20 tweets se parecen mucho entre ellos y por lo tanto tengan el mismo significado o vengan a decir lo mismo. Para ello analizaremos la diferencia entre los mismos. Un ejemplo sería\footnote{Se trata de un usuario inventado donde 'original text' serían sus últimos cinco tweets y 'modified text' los tweets tratados sin palabras vacías.}:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=12cm, width=12cm]{imgs/ExampleSPAM.png}
+		\caption{Resultados obtenidos con un usuario clasificado como \textit{troll spammer} (usuario inventado).}
+	\end{figure}
+	Un ejemplo real de un usuario \textit{spammer} seria el usuario 'BangtanPromoARG' cuyos últimos tweets son:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=12cm, width=12cm]{imgs/ExampleSPAMTwitter.png}
+		\caption{Clasificación suario 'BangtanPromoARG' por \textit{trolls detector}.}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=10cm, width=10cm]{imgs/ExampleRealSPAM.png}
+		\caption{Usuario 'BangtanPromoARG' clasificado como \textit{troll spammer}.}
+	\end{figure}
+	Por último, también puede darse la posibilidad de que el usuario no sea ninguna de las tres cosas como por ejemplo un usuario que sus últimos 5 tweets sean\footnote{Se tratá de un usuario inventado donde 'original text' serían sus últimos cinco tweets y 'modified text' los tweets tratados sin palabras vacías.}:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=15cm, width=16cm]{imgs/ExampleNoTroll.png}
+		\caption{Resultados obtenidos con un usuario que no es no es un bot, spammer o observer troll.}
+	\end{figure}
+	
+	Este menú también permite clasificar solo un tweet mediante clasificación de texto (opción 4) y sería aplicar la fase 1 y la \textbf{clasificación} o \textbf{análisis del sentimiento} del tweet (opción 5) y correspondería a la fase 2.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=15cm, width=16cm]{imgs/Option4Rugby.png}
+		\caption{Ejemplo opción 4, analizar un tweet sobre rugby.}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=15cm, width=17cm]{imgs/Option4Boxing.png}
+		\caption{Ejemplo opción 4, analizar un tweet sobre boxeo.}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=15cm, width=15cm]{imgs/Option5Alegria.png}
+		\caption{Ejemplo opción 5, analizar un tweet alegre.}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=15cm, width=16cm]{imgs/Option5Miedo.png}
+		\caption{Ejemplo opción 5, analizar un tweet sobre miedo.}
+	\end{figure}
+
+
+
+
+
+
+
+
+
 
 %\newpage
 %\subsection{Utilización de la aplicación}
-
+	%{\color{red}  TODO:  Hacer menú e interacciones\\ }
 \end{document}
