@@ -1,3 +1,6 @@
+__author__      = "Jorge Melguizo"
+__copyright__   = "Copyright 2018, Trolls Detector"
+
 import pymongo, json
 from pymongo import MongoClient
 import Utils, re, string

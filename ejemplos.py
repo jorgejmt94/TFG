@@ -1,4 +1,6 @@
-#my files
+__author__      = "Jorge Melguizo"
+__copyright__   = "Copyright 2018, Trolls Detector"
+
 
 #text_to_classify = input('Enter the text to classify: ') #input mode
 

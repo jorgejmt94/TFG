@@ -1,4 +1,7 @@
-# General:
+__author__      = "Jorge Melguizo"
+__copyright__   = "Copyright 2018, Trolls Detector"
+
+
 import tweepy
 import re, string
 

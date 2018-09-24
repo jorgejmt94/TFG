@@ -1,4 +1,6 @@
-#myFiles
+__author__      = "Jorge Melguizo"
+__copyright__   = "Copyright 2018, Trolls Detector"
+
 import Utils, DB
 
 
@@ -7,7 +9,6 @@ def get_text_from_wikipedia(type):
     # Obtener info de wikipedia
     wikipedia.set_lang("es")
     return wikipedia.page(Utils.get_data_name(type)).content.lower()
-
 
 def get_top_words(word_list, percentage):
     import collections
@@ -21,7 +22,6 @@ def get_top_words(word_list, percentage):
         top_words.append(word)
 
     return top_words, top_words_percentages
-
 
 def get_data_from_wikipedia(type, percentage):
     data = []

@@ -1,4 +1,6 @@
-import DB
+__author__      = "Jorge Melguizo"
+__copyright__   = "Copyright 2018, Trolls Detector"
+
 class Node():
     key = 0
 

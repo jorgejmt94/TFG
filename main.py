@@ -1,3 +1,7 @@
+__author__      = "Jorge Melguizo"
+__copyright__   = "Copyright 2018, Trolls Detector"
+
+
 import DataFromInternet, DB, Utils, Algorithms, DataFromInternet, Tree, Twitter
 print()
 
@@ -103,9 +107,9 @@ while input_value != 'exit' and input_value != '6':
         tweet_to_analize = input()
         Algorithms.analize_sentiment_with_dictionary(tweet_to_analize, debug=1)
 
-user_name = 'jorgejmt94'
-tweets = Twitter.get_last_weets(user_name, 10)
-tweet_to_analize = "Futbol: cr7 merecia el 'the best'"
-Algorithms.is_fake(tweet_to_analize, tweets, user_name, debug=debug)
+# user_name = 'jorgejmt94'
+# tweets = Twitter.get_last_weets(user_name, 10)
+# tweet_to_analize = "Futbol: cr7 merecia el 'the best'"
+# Algorithms.is_fake(tweet_to_analize, tweets, user_name, debug=debug)
 
 

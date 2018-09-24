@@ -1,3 +1,6 @@
+__author__      = "Jorge Melguizo"
+__copyright__   = "Copyright 2018, Trolls Detector"
+
 import DB, Tree
 
 MIN_TYPES = 0
